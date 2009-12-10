@@ -1,0 +1,19 @@
+<dl class="advanced closed">
+  <dt><a href="#" id="toggle_page_advanced"><span><%= t(:advanced, :scope => [@article.class, :headers]) %></span></a></dt>
+  <dd>
+    <table class="fields">
+      <tbody>
+        <tr>
+          <th><%= v.label_with_text :name %></th>
+          <td><%= v.text_field :name %></td>
+        </tr>
+        <% if @renderable_scope.templates_for(@variant.article).size > 1 %>
+          <tr>
+            <th><%= v.label_with_text :template %></th>
+            <td><%= v.select :template, templates_for_select(@variant.article) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </dd>
+</dl>

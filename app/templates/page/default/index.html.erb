@@ -1,0 +1,57 @@
+<%= render :partial => "default/head" %>
+<% page_sections = page_sections_per_column(article_version) %>
+<% nesting = article_version.page.nesting %>
+
+<% @menu = menu(nesting[0],:depth => 2) %>
+
+<body>
+    <div id="body">
+      <div class="wrapper">        
+        <div id="content">
+          <h1><%= article_version.data.title %></h1>
+          <% assign(:heading_level,1) %>
+
+          <% page_sections.each_with_index do |page_section, i| %>
+            <% next if i == 1 || page_section.nil? %>
+            <%= render_collection(page_section) %>
+          <% end %>
+
+          <%= @body %>
+          <%= render_object(@renderable_object) if @renderable_object%>
+        </div>
+        
+        <div id="sidebar">
+          <%= render :partial => "default/search/search_extended" unless @search_type.blank?  %>     
+          <% if page_sections[1] %>
+            <%= render_collection(page_sections[1]) %>
+          <% else %>
+
+            <% if right_column_menu_fragment_id = Settings.get(:fragments, :sidebar_fragment_id) %>
+              <% if right_column_menu_fragment = Skyline::PageFragment.find_by_id(right_column_menu_fragment_id).andand.published_publication %>
+                <%= render_collection(right_column_menu_fragment.sections) %>
+              <% end %>
+            <% end %>
+
+          <% end %>
+        </div>
+        <div id="leftbar">
+          <%= render :partial => "default/sub_navigation" %>
+        </div>
+        
+        <%= render :partial => "default/footer" %>  
+      </div>
+    </div>
+    
+    <%= render :partial => "default/header", :locals => {:nesting => nesting} %>
+    
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-11369197-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!-- [START:head?title=Home] -->
+<head>
+	<title><%= article_version.data.custom_title_tag.present? ? article_version.data.title_tag : title_tag(article_version) %></title>
+  <%= content_tag "meta", "", :name => "description", :content => meta_description_tag(article_version) %>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>	
+	<meta http-equiv="content-language" content="nl" />
+	<link rel="stylesheet" href="/stylesheets/undohtml.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="/stylesheets/general.css" type="text/css" media="screen" charset="utf-8" />	
+	<!--[if lte IE 7]>
+	  <link rel="stylesheet" href="/stylesheets/ie7.css" type="text/css" media="screen" charset="utf-8" />
+	<![endif]-->
+	<!--[if lte IE 6]>
+	  <link rel="stylesheet" href="/stylesheets/ie6.css" type="text/css" media="screen" charset="utf-8" />
+	<![endif]-->		
+	<script src="/javascripts/library.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/javascripts/site.js" type="text/javascript" charset="utf-8"></script>
+	
+	<% if @search_active %>
+    <%= stylesheet_link_tag "/stylesheets/autocompleter.css" %>
+    <%= javascript_include_tag "/javascripts/observer.js" %>
+    <%= javascript_include_tag "/javascripts/autocompleter.js" %>
+    <%= javascript_include_tag "/javascripts/autocompleter.request.js" %>
+    <%= javascript_include_tag "/javascripts/application.js" %>
+  <% end %>
+  
+</head>
+<!-- [STOP:head] -->

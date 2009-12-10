@@ -1,0 +1,80 @@
+/* Quick Start Section */
+
+.customLinkSection ul.links {
+  margin: 5px 0;
+}
+
+div.relatesTo,
+.customLinkSection ul.links .relatesTo {
+  padding-top: 3px;
+  line-height: 16px;
+  vertical-align: middle;
+}
+
+div.relatesTo img,
+.customLinkSection ul.links .relatesTo img{
+  margin-left: 1em;
+  vertical-align: middle;
+}
+
+.customLinkSection ul.links li{
+  padding-right: 47px;
+}
+
+.customLinkSection ul.links li .file{
+  padding-left: 24px;  
+}
+
+.customLinkSection ul.links li a{
+  padding: 0;
+}
+
+.customLinkSection .mediaFile .file{
+  background-image: url(../skyline/images/icons/attachment.gif);  
+}
+
+.customLinkSection ul.links li.page .file{
+  background-image: url(../skyline/images/icons/default.gif);  
+}
+
+.customLinkSection ul.links li.external .file{
+  background-image: url(../skyline/images/icons/link-external.gif);
+}
+
+.customLinkSection ul.links .tools{
+  position: absolute;
+  right: 0px;
+  width: 42px;
+  top: 0;
+}
+
+.customLinkSection ul.links .tools li{
+  padding: 0;
+  margin: 0;
+  background: none;
+  float: left;
+  clear: none;
+  padding: 2px;
+  background:#DDDDDD none repeat scroll 0 0;
+  border:1px solid #999999;
+  height:14px;
+  width:14px;  
+  margin-right:1px;  
+}
+
+.customLinkSection .section .body{
+  padding: 0;
+  border-top: none;
+}
+
+.customLinkSection .section .body .body{
+  padding: 5px;
+}
+
+.customLinkSection .section .body .submit{
+  background: #ddd;
+}
+
+.customLinkSection .section .body dl{
+  border-top: 1px solid #ddd;
+}

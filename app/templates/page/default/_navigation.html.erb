@@ -1,0 +1,34 @@
+<% nesting = article_version.page.nesting %>
+<% m = menu(nesting[1], :depth => 4) %>
+<% if m[:children].any? %>
+  <dl class="navigation">
+      <dt><%= m[:page].published_publication_data.andand.navigation_title %></dt>
+      <dd>
+        <ul>
+          <% m[:children].each do |p| %>
+            <% is_active = p[:page] == article_version.page || p[:children].detect{|c| c[:page] == article_version.page} %>
+            <% if m[:children].last == p %>
+              <% if p[:children].any? && is_active %>
+                <li class="last-with-children">
+              <% else %>
+                <li class="last">
+              <% end %>
+            <% else %>
+              <li>
+            <% end %>
+              <%= link_to content_tag("span",p[:page].published_publication_data.navigation_title), p[:page].url, :class => (is_active ? "active" : nil) %>
+              <% if p[:children].any? && is_active %>
+                <ul>
+                  <% p[:children].each do |sp| %>
+                    <li>
+                      <%= link_to content_tag("span",sp[:page].published_publication_data.navigation_title), sp[:page].url, :class => (sp[:page] == article_version.page ? "active" : nil) %>
+                    </li>            
+                  <% end %>
+                </ul>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </dd>
+  </dl>
+<% end %>

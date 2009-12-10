@@ -1,0 +1,30 @@
+<% if search_term %>
+  <h2>Search results for: <%=search_term%></h2>
+  <%= render :partial => "search/suggestions", :locals => {:suggestions => suggestions} %>
+  
+  <div class="text">
+    <p>
+      <strong>Pages (<%= pages_found || 0 %>)</strong>,
+      <% if p = Settings.get_page(:search, :results_page_id) %>
+        <a href="<%= p.url %>?search_type=files&q=<%= params[:q] %>">Files (<%= files_found || 0 %>)</a>
+      <% end %>
+    </p>
+  </div>
+  <dl class="news">  
+    <% if results.any? %>
+      <% results.each do |r| %>  
+        <% id = r["id"] %>
+          <dt class="title"><%= r["title"] %></dt>
+          <dd>
+            <div class="text"><%= hl[id]["text"] %></div>
+            <a href="<%=r["url"]%>" class="more">Read more</a>
+          </dd>
+      <% end %>
+      <%= will_paginate(results, {:previous_label => "&laquo; vorige", :next_label => "volgende &raquo;"}) %> 
+    <% else %>
+      <dt><div class="text">No search results</div></dt>
+    <% end %>
+  </ul>
+<% else %>
+  <%= render :partial => "search/info" %>
+<% end %>

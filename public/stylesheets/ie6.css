@@ -1,0 +1,11 @@
+#teaser{
+  background: none;
+}
+
+#teaser dl{
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/images/backgrounds/teaser.png", sizingMethod='scale');
+}
+
+#teaser a{
+  position: relative;
+}

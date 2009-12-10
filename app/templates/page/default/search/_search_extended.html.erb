@@ -1,0 +1,39 @@
+<% if @search_active %>
+  <form class="advanced-search" id="search-form" action="<%=page_from_setting(:search, :results_page_id).url%>">
+    <dl class="highlight">
+      <dt>Extended search</dt>
+      <dd>
+        <div class="text">
+          <label for="search_pages" class="checkbox">
+            <%=radio_button_tag 'search_type', 'other', params[:search_type].to_s == "other" || params[:search_type].blank? %>
+            Pages
+          </label>
+          <label for="search_bestanden" class="checkbox">
+            <%=radio_button_tag 'search_type', 'files', params[:search_type].to_s == "files" %>
+            Files
+          </label>
+        </div>
+      </dd>
+      <dd>
+        <div class="text">
+          <%=text_field_tag "q", params[:q] || "term"%>
+        </div>
+      </dd>
+      <dd>
+        <button type="submit">Search</button>
+      </dd>
+    </dl>
+  </form>
+  <script type="text/javascript" charset="utf-8">
+    $('q').addEvent("focus", function(e){
+      if ($('q').value == "term") {
+        $('q').value = '';
+      }
+    });
+    $('search-form').addEvent("submit", function(e){
+      if ($('q').value == "term") {
+        $('q').value = '';
+      }
+    });
+  </script>
+<% end %>

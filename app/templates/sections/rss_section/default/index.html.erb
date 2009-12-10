@@ -1,0 +1,15 @@
+<% if rss_section.items.any? %>
+  <h2><%=rss_section.title%> <img alt="" src="/images/icons/rss.gif"/></h2>
+  <dl class="news">
+    <% rss_section.items.each do |i| %>  
+        <dt><%= i[:title] %></dt>
+        <dd>
+           <% copyright = i[:author] || rss_section.rss_feed[:copyright] %>
+          <cite><a href="<%= i[:link] %>" class="more">Bron: <%= i[:category] || rss_section.rss_feed[:category] %><%= " | #{copyright}" if copyright.present? %></a></cite>
+          <div class="text">
+            <%= i[:description] %>
+          </div>
+          <a href="<%= i[:link] %>" class="more" target="_blank">Read more</a></dd>
+    <% end %>
+  </dl>
+<% end %>

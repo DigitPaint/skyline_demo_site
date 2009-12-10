@@ -1,0 +1,16 @@
+<% nesting = article_version.page.nesting %>
+<% m = @menu || menu(nesting[0]) %>
+
+<ul>
+  <% is_active = Skyline::Page.root == article_version.page %>
+  <li class="<%= "active" if is_active %>">
+    <%= link_to Skyline::Page.root.published_publication_data.andand.navigation_title, Skyline::Page.root.url %>
+  </li>
+  <li>
+  <% m[:children].each do |p| %>
+    <% is_active = p[:page] == article_version.page || nesting.include?(p[:page]) %>
+    <li class="<%= "active" if is_active %>">
+      <%= link_to p[:page].published_publication_data.andand.navigation_title, p[:page].url %>
+    </li>
+  <% end %>
+</ul>

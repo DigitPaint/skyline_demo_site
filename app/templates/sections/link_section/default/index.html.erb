@@ -1,0 +1,18 @@
+<% if link_section.title.present? %>
+  <% x = assign(:heading_level).to_i + 1 %>
+  <h<%= x %>><%=link_section.title%></h<%= x %>>
+<% end %>
+<% if link_section.links.any? %>
+  <ul class="links">
+    <% link_section.links.each do |link| %>
+      <% options = link.external? || link.file? ? {:target => "_blank"} : {} %>
+      <% if link.file? && link.linked.present? %>
+        <li class="<%= link.linked.file_type %>"><%= link_to link.title.to_s + "(#{link.linked.file_type.upcase} #{number_to_human_size(link.linked.size)})", link.url, options %>
+      <% elsif link.external? %>
+        <li class="external"><%= link_to link.title, link.url, options %></li>
+      <% else %>
+        <li><%= link_to link.title, link.url, options %></li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>

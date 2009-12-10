@@ -1,0 +1,659 @@
+/* =============================== */
+/* = Styles for Skyline CMS site = */
+/* =============================== */
+
+body,html { height: 100%; }
+
+body{
+  font-size: 62.5%;
+  font-family: arial, helvetica, verdana, sans-serif;
+  color: #666;
+  background: url(../images/backgrounds/body.gif) #fff 50% 0 repeat-y;
+}
+
+.wrapper{
+  position: relative;
+  width: 980px;
+  margin: 0 auto;
+}
+
+#header{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background: #000;
+  color: #fff;
+  border-bottom: 1px solid #63ca3b;
+}
+
+#body{
+  position: relative;
+  border-top: 5px solid #38a200;  
+  margin-top: 52px;
+  padding-top: 0px;
+  min-height: 500px;
+}
+
+body.full{
+  background: #fff;
+}
+
+.full #body{
+  width: 100%;
+  padding-right: 0;
+}
+
+.full #body .wrapper{
+  position: relative;
+  left: 0;
+  margin-left: auto;
+}
+
+.full #footer{
+  width: 100%;
+}
+
+/* ========== */
+/* = Header = */
+/* ========== */
+
+#header,
+#header .wrapper{
+  height: 51px;
+}
+
+#header img,
+#header ul,
+#header ul li{
+  float: left;
+}
+
+#header ul{
+  bottom: 14px;
+  position: absolute;
+  left: 245px;
+}
+
+#header ul li{
+  margin-right: 25px;
+}
+
+#header ul li.active a,
+#header ul li a:hover{
+  color: #38a200;
+}
+
+#header ul li a{  
+  color: #fff;
+}
+
+/* =========== */
+/* = Service = */
+/* =========== */
+
+#service{
+  position: absolute;
+  right: 0;
+  bottom: 14px;
+}
+
+#service a,
+#service form{ 
+  color: #cccccc;
+  margin-left: 10px;
+  float: left;
+}
+
+#search input,
+#search button{
+  float: left;
+  vertical-align: middle;
+  font-size: 1em;
+}
+
+#search input{
+  margin-right: 5px;
+  width: 150px;
+}
+
+
+
+/* =========== */
+/* = Columns = */
+/* =========== */
+
+#content{
+  float: right;
+  width: 440px;
+  margin: 28px 245px 5em -735px;
+  padding-right: 50px;
+}
+
+#content.span-left {
+  width: 685px;
+  margin-left: -980px;
+}
+
+.full #content{
+  left: 0;
+  width: 980px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+}
+
+#sidebar{
+  float: right;
+  width: 227px;
+  margin-top: 28px;
+  padding: 0 0 0 18px;
+}
+
+.has-teaser #sidebar{
+  margin-top: 0px;
+}
+
+#leftbar{
+  width: 245px;
+
+}
+
+#footer{
+  background: #fff;
+  width: 735px;
+  padding: 5px 0;
+}
+
+#footer{
+  clear: both;
+  border-top: 1px solid #e8e8e7;
+}
+
+#footer,
+#footer a{
+  color: #666;  
+}
+
+#content div.leftcolumn{
+  width: 227px;
+  margin-right: 18px;
+  float: left;
+}
+
+#content div.rightcolumn{
+  margin-left: 245px;
+}
+
+/* ============== */
+/* = Navigation = */
+/* ============== */
+
+#navigation{
+  width: 210px;
+  padding-top: 20px;
+  background: url(../images/backgrounds/navigation.gif) 0 0 no-repeat;
+}
+
+#navigation li{
+  background: url(../images/backgrounds/navigation.gif) 0 0 no-repeat;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0 1px;
+}
+
+#navigation li.last{
+  background: url(../images/backgrounds/navigation.gif) 0 100% no-repeat;
+  border-bottom: 0 none;
+  padding-bottom: 1px;
+}
+
+
+#navigation li a{  
+  display: block;
+  padding: 5px 10px 5px 25px;
+}
+
+
+#navigation li.active li a:hover,
+#navigation li a:hover{
+  background-color: #f7f7f7;  
+}
+
+#navigation li.active{
+  background-color: #daf2d1;  
+}
+
+#navigation li.active a,
+#navigation li.active li.active a{
+  color: #38a200;
+}
+
+#navigation li.active a{
+  background: url(../images/backgrounds/links-a-hover.gif) 10px 8px no-repeat;
+}
+
+#navigation li a,
+#navigation li.active li a{
+  background: none;
+  color: #666;
+}
+
+#navigation li li{
+  background: transparent;
+  border-top: 1px dotted #e0e0e0;
+  border-bottom: 0px none;
+}
+
+#navigation li li a{
+  padding-left: 35px;
+}
+
+
+/* =============== */
+/* = Info blocks = */
+/* =============== */
+
+dl.info{
+  background: #f1f1f1;
+  margin-bottom: 10px;
+}
+
+dl.highlight dt,
+dl.info dt{
+  background: #fff;
+  padding: 10px 14px;
+}
+
+dl.highlight dd,
+dl.info dd{
+  padding: 10px 14px;
+}
+
+dl.info dd div.text p:last-child,
+dl.info dd div.text ul:last-child,
+dl.info dd div.text ol:last-child,
+dl.highlight dd div.text p:last-child,
+dl.highlight dd div.text ul:last-child,
+dl.highlight dd div.text ol:last-child{
+  margin-bottom: 0;
+}
+
+/* Highlight */
+
+dl.highlight{
+  margin-bottom: 10px;
+}
+
+dl.highlight{
+  background-image: url(../images/backgrounds/dl-shadow.gif);
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+  margin-right: -11px;
+  padding-right: 11px; 
+  padding-bottom: 11px; 
+  margin-bottom: -1px;
+}
+
+dl.highlight dt{
+  background-color: #fff;
+  text-transform: uppercase;
+  background-image: url(../images/backgrounds/dl-shadow-dt.gif);
+  background-position: 100% 0;
+  background-repeat: no-repeat;
+  margin-right: -11px;
+  padding-right: 11px;  
+}
+
+dl.highlight dd{ background-color: #F1F1F1; }
+dl.highlight dd li a:hover{ background: #daf2d1; }
+
+/* ========== */
+/* = Events = */
+/* ========== */
+
+dl.info ul.links,
+dl.highlight ul.links{
+  margin: -10px -14px;
+}
+
+dl.highlight   .links li{
+  padding: 0;
+  border-top: 1px solid #fff;
+  background: none;
+}
+
+dl.highlight .links a{
+  display: block;
+  color: #666;
+  padding: 7px 14px;
+  background: none;
+}
+
+dl.highlight .links a:hover{
+  background-image: none;
+  color: #666;
+}
+
+dl.highlight ul.links span.date{
+  display: block;
+}
+
+/* ========= */
+/* = Links = */
+/* ========= */
+
+dl.info ul.links li{
+  padding: 7px 7px 7px 44px;
+  border-top: 1px solid #fff;
+  background: url(../images/backgrounds/links-li.gif) 14px 50% no-repeat;
+}
+
+dl.info ul.links li a{
+  display: block;
+  color: #666;
+  background: url(../images/backgrounds/links-a.gif) 100% 50% no-repeat;
+  padding-right: 30px;
+}
+
+dl.info ul.links li a:hover{
+  color: #38a200;
+  background-image: url(../images/backgrounds/links-a-hover.gif);
+}
+
+ul.links li{
+  padding: 1px 0 5px 23px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+ul.links li a{
+  color: #666;
+}
+
+ul.links li a:hover{
+  color: #38a200;   
+}
+
+ul.links .file { background-image: url(../images/icons/attachment.gif); }
+ul.links .excel { background-image: url(../images/icons/excel.gif); }
+ul.links .image { background-image: url(../images/icons/image.gif); }
+ul.links .pdf   { background-image: url(../images/icons/pdf.gif); }
+ul.links .text  { background-image: url(../images/icons/text.gif); }
+ul.links .compressed { background-image: url(../images/icons/compressed.gif); }
+ul.links .word       { background-image: url(../images/icons/word.gif); }
+ul.links .html       { background-image: url(../images/icons/html.gif); }
+ul.links .powerpoint { background-image: url(../images/icons/powerpoint.gif); }
+ul.links .executable { background-image: url(../images/icons/executable.gif); }
+ul.links .audio      { background-image: url(../images/icons/audio.gif); }
+ul.links .video      { background-image: url(../images/icons/video.gif); }
+ul.links .flash      { background-image: url(../images/icons/flash.gif); }
+ul.links .external { background-image: url(../images/icons/external.gif); }
+
+/* ========== */
+/* = Tables = */
+/* ========== */
+
+th,
+td{
+  font-weight: normal;
+  text-align: left;
+}
+
+
+td.left{
+  text-align: left;
+}
+
+td.right{
+  text-align: right;
+}
+
+td.center{
+  text-align: center;
+}
+
+/* ========== */
+/* = Images = */
+/* ========== */
+
+#content div.media{
+  background: #fff;
+}
+
+div.left div.media,
+div.media.left{
+  float: left;
+  padding: 0 10px 10px 0;
+}
+
+div.right div.media,
+div.media.right{
+  float: right;
+  padding: 0 0 10px 10px;
+}
+
+div.media.center{
+  margin: 0 auto;
+  margin-bottom: 1em;
+}
+
+div.media p.caption{
+  font-style: italic;
+  color: #999;
+}
+
+#sidebar div.media{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* ============ */
+/* = Features = */
+/* ============ */
+
+div.feature{
+  margin-top: 36px; /* This is the same as the H2 */
+  float: none;
+  padding: 0;
+}
+
+div.feature div.media{
+  width: 100px;
+}
+
+div.left div.content{
+  margin-right: 0px;
+  margin-left: 110px;
+}
+
+div.right div.content{
+  margin-right: 110px;
+  margin-left: 0;
+}
+
+/* ======== */
+/* = News = */
+/* ======== */
+
+dl.news dt{
+  font-weight: bold;
+}
+
+dl.news dd.date{
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+dl.news dd{
+  margin-bottom: 1em;
+}
+
+
+/* ========= */
+/* = Fonts = */
+/* ========= */
+
+#header ul{
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+#footer,
+#service{
+  font-size: 1.1em;
+}
+
+#service{
+  font-weight: bold;
+}
+
+dl.highlight dt,
+dl.info dt{
+  font-size: 1.3em;
+  line-height: 1.38;
+}
+
+#navigation li a,
+dl.info ul.links li{
+  font-size: 1.4em;
+}
+
+#navigation li li a{
+  font-size: 1.2em;
+}
+
+dl.highlight ul.links span.date{
+  font-size: 0.846em;
+}
+
+div.media p.caption{
+  font-size: 1.1em;
+}
+
+#teaser dd{
+  line-height: 1;
+  font-size: 1.8em;
+}
+
+#teaser dd a{
+  font-size: 0.667em;
+}
+
+
+dl.highlight ul.links,
+dl.attention dt,
+h3,
+dl.news,
+table.comparison,
+div.text,
+#content ul.links,
+#mbBottom{
+  font-size: 1.2em;
+  line-height: 1.38;
+}
+
+div.code,
+div.code code{
+  font-family: "Bitstream Vera Sans Mono","Monaco","Courier New",monospace;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+dl.news div.text{
+  font-size: 1em;
+}
+
+div.code,
+dl.attention,
+dl.news,
+#content ul.links,
+div.text p,
+div.text ul,
+div.text ol{
+  margin-bottom: 1em;
+}
+
+#teaser dd a,
+dl.news a.more,
+div.text a{
+  color: #38a200;
+}
+
+#footer a:hover,
+#teaser dd a:hover,
+dl.news a.more:hover,
+div.text a:hover{
+  text-decoration: underline;
+}
+
+#home h1{
+  color: #333;
+  font-size: 2.8em;
+  margin-bottom: 1em;
+  font-weight: bold;
+}
+
+h1,
+#teaser dt{
+  font-size: 2.8em;
+  color: #38a200;
+  font-weight: normal;
+}
+
+h1{
+  margin-bottom: 20px;
+}
+
+h2{
+  font-size: 1.8em;
+  border-bottom: 1px solid #c1c1c0;
+  margin-bottom: 0.8em;
+  font-weight: normal;
+  margin-top: 2em;
+}
+
+/* lists */
+div.text li ul,
+div.text li ol{
+  margin-bottom: 0;
+  padding-left: 10px;
+}
+
+div.text ul li{
+  padding-left: 10px;
+  background: url(../images/backgrounds/text-ul-li.gif) 0 5px no-repeat;
+}
+
+div.text ul li li{
+  padding-left: 7px;
+  background: url(../images/backgrounds/text-ul-li-li.gif) 0 8px no-repeat;  
+}
+
+div.text ol li{
+  margin-left: 1.4em;
+  list-style: decimal outside;
+}
+
+div.text ol li li{
+  list-style: lower-alpha outside;
+}
+
+div.text img.left{
+  float: left;
+  padding: 0 10px 10px 0;
+}
+
+div.text img.right{
+  float: right;
+  padding: 0 0 10px 10px;
+}
+
+div.text img.block{
+  display: block;
+}
+
+
+/* Insets */
+.full h2,
+.full div.inset{
+  margin-right: 0;
+}

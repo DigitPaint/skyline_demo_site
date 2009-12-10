@@ -1,0 +1,39 @@
+#content{
+  margin-right: 0;
+  zoom: 1;
+}
+
+#navigation li,
+#navigation li a,
+ul.links li,
+ul.links li a{
+  zoom: 1;
+}
+
+div.code pre,
+div.code,
+dl.attention,
+dl.info,
+dl.info dt,
+dl.info dd,
+dl.highlight,
+dl.highlight dt,
+dl.highlight dd{
+  position: relative;
+  zoom: 1;
+}
+
+div.code pre{
+   padding-bottom: 20px;   
+}
+
+div.text ol{
+  margin-left: 1em;
+}
+
+div.text ol li{
+  margin-left: 1em;
+  vertical-align:top;
+  zoom: 1;
+  display: list-item;
+}

@@ -1,0 +1,32 @@
+/* ================== */
+/* = WYSIWYG styles = */
+/* ================== */
+
+div.text img.right{
+  float: right;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+div.text img.left{
+  float: left;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+div.text img.block{
+  display: block; 
+}
+
+/* ================== */
+/* = FORM styles = */
+/* ================== */
+ul.horizontal li {
+  border: green;
+  float: left;
+}
+
+ul.vertical li {
+  border: green;
+  display: block;
+}

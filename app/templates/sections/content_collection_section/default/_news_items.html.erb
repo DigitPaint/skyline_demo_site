@@ -1,0 +1,23 @@
+<% if news_items.any? %>
+  <dl class="news">
+    <% news_items.each do |n| %>  
+      <dt><%= n.title %></dt>
+      <% if n.publication_date.present? %>
+        <dd class="date"><%= l(n.publication_date, :format => :long) %></dd>
+      <% end %>
+      <dd>
+        <div class="text">
+          <% if n.image.present? %>
+            <%= image_tag(n.image.url("50x50"), :alt => n.image.title) %>
+          <% else %>
+            <%= image_tag("default-50x50.gif") %>
+          <% end %>          
+          <%= n.teaser %>
+        </div>
+        <% if url = n.news_item.url %>
+          <a href="<%= url %>" class="more">Read more</a>
+        <% end %>
+      </dd>
+    <% end %>
+  </dl>
+<% end %>

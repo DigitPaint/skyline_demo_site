@@ -1,0 +1,15 @@
+<h2>
+  <%=article_version.data.title%>
+  <small><%= l(article_version.data.publication_date, :format => :long) %></small>
+</h2>
+<div class="text">
+  <% if article_version.data.image.present? %>
+    <%= image_tag(article_version.data.image.url("50x50"), :alt => article_version.data.image.title) %>
+  <% else %>
+    <%= image_tag("default-50x50.gif") %>
+  <% end %>
+</div>
+
+<%= render_collection(article_version.sections) %>
+
+

@@ -1,0 +1,37 @@
+<div id="header">
+  <div class="wrapper">
+    <a href="/" id="logo"><img src="/images/logo.gif" alt="Skyline" /></a>
+    
+    <% menu = menu(article_version.page.nesting[0]) %>
+    <ul>
+      <% is_active = article_version.page.root? %>
+      <li class="<%= is_active ? "active" : nil %> ">
+        <%= link_to "Home", "/" %>
+      </li>
+      <% menu[:children].each_with_index do |p,i| %>
+        <% is_active = p[:page] == article_version.page || p[:page] == article_version.page.nesting[1] %>
+        <li class="<%= is_active ? "active" : nil %> ">
+          <%= link_to p[:page].published_publication_data.title, p[:page].url%>
+        </li>
+      <% end %>
+    </ul>
+    
+    <div id="service">  
+      <% if @search_active %>
+        <form id="search" action="<%= page_from_setting(:search, :results_page_id).url %>" method="get" class="search">
+          <input type="text" name="q" id="search-word"/>
+          <button type="submit">Search</button>
+        </form>
+        <script type="text/javascript">
+          document.addEvent('domready', function() {
+            var inputWord = $('search-word');
+            new Autocompleter.Request.JSON(inputWord, '/search_suggestions', {
+              'indicatorClass': 'autocompleter-loading',
+              ajaxOptions: {'method':'get'}
+            });
+          });
+        </script>
+      <% end %>
+    </div>
+  </div>
+</div>

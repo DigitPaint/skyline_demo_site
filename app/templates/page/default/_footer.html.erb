@@ -1,0 +1,7 @@
+<div id="footer">
+  <% if footer_fragment_id = Settings.get(:fragments, :footer_fragment_id) %>
+    <% if footer_fragment = Skyline::PageFragment.find_by_id(footer_fragment_id).andand.published_publication %>
+      <%= render_collection(footer_fragment.sections) %>
+    <% end %>
+  <% end %>
+</div>

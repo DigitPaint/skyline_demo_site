@@ -1,0 +1,29 @@
+<% if search_term %>
+  <h2>Search results for: <%=search_term%></h2>
+  <%= render :partial => "search/suggestions", :locals => {:suggestions => suggestions} %>
+  
+  <div class="text">
+    <p>
+      <% if p = Settings.get_page(:search, :results_page_id) %>
+        <a href="<%= p.url %>?search_type=other&q=<%= params[:q] %>">Pagina's (<%= pages_found || 0 %>)</a>, 
+      <% end %>    
+      <strong>Bestanden (<%= files_found || 0 %>)</strong>
+    </p>
+  </div>
+  
+  <ul class="links">
+    <% if results.any? %>
+      <% results.each do |r| %>  
+        <% id = r["id"] %>
+        <li class="<%= r["file_type_s"] %>">
+          <%= link_to "#{r['title']} (#{l(Time.parse(r['documentdate']).andand.to_date, :format => :short)})", r['url'], :target => "_blank" %>
+        </li>
+      <% end %>
+      <%= will_paginate(results, {:previous_label => "&laquo; vorige", :next_label => "volgende &raquo;"}) %> 
+    <% else %>
+      <li>Er zijn geen zoekresultaten gevonden</li>
+    <% end %>
+  </ul>
+<% else %>
+  <%= render :partial => "search/info" %>
+<% end %>

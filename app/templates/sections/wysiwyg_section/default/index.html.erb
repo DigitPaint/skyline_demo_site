@@ -1,0 +1,8 @@
+<% n = peek(1)[0] %>
+<% section_types = %w{
+  Skyline::Sections::MediaSection
+  Skyline::Sections::HeadingSection 
+  Skyline::Sections::WysiwygSection} %>
+<div class="text <%= "section" if n && !%w{level1}.include?(wysiwyg_section.section.article_version.template) && !section_types.include?(n.sectionable_type) %>">
+  <%=wysiwyg_section.body%>
+</div>

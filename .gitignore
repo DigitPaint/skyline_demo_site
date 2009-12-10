@@ -1,0 +1,12 @@
+.DS_Store
+log/*
+tmp/*
+*.log
+config/database.yml
+config/deploy.rb
+Capfile
+public/skyline
+_Store
+Thumbs.db
+bin
+vendor/bundler_gems/

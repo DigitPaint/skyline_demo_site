@@ -1,0 +1,18 @@
+<% if p = Settings.get_page(:search, :results_page_id) %>
+  <% if suggestions.any? %>
+    <div class="text">
+      <p>
+        Did you mean: 
+        <% suggestions.each do |w| %>
+          <% w.each do |k,s| %>        
+            <% if k == "suggestion" %>
+              <% s.each do |sug| %>
+                <a href="<%=p.url%>?q=<%=sug%>"><%=sug%></a>&nbsp;
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </p>
+    </div>
+  <% end %>
+<% end %>

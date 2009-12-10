@@ -1,0 +1,9 @@
+"nl-NL":
+  date:
+    formats:
+      month_and_year: "%B %Y"
+      day_and_month: "%d %B"
+  activerecord:
+    models:
+      news_item/data: "Nieuws"
+      calendar_item: "Agenda"

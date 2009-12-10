@@ -1,0 +1,22 @@
+<% nesting = article_version.page.nesting %>
+<% m = @menu[1] || menu(nesting[1],:depth => 2) %>
+
+<% if m[:children].any? %>
+  <ul id="navigation">
+    <% m[:children].each do |p| %>
+      <% is_active = p[:page] == article_version.page || p[:children].detect{|c| c[:page] == article_version.page} %>
+      <li class="<%= "active" if is_active %> <%= "last" if p == m[:children].last %>">
+        <%= link_to p[:page].published_publication_data.andand.navigation_title, p[:page].url %>
+        <% if p[:children].any? && is_active %>
+          <ul>
+            <% p[:children].each do |sp| %>            
+              <li class="<%= "active" if sp[:page] == article_version.page %>">
+                <%= link_to sp[:page].published_publication_data.andand.navigation_title, sp[:page].url %>
+              </li>            
+            <% end %>
+          </ul>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

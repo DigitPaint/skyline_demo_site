@@ -1,0 +1,17 @@
+<% if news_items.any? %>
+  <dl class="highlight">
+    <dt>News</dt>
+    <dd>
+      <ul class="links">
+        <% news_items.each do |n| %>
+          <li>
+            <a href="<%= n.news_item.url %>">
+              <strong><%=l(n.publication_date.to_date, :format => :default)%></strong>
+              <span class="more"><%=n.title%></span>
+            </a>
+          </li>  
+        <%end%>
+      </ul>    
+    </dd>
+  </dl>
+<% end %>

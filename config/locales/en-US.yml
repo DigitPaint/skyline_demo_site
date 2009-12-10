@@ -1,0 +1,23 @@
+"en-US":
+  date:
+    formats:
+      month_and_year: "%B %Y"
+      day_and_month: "%d %B"
+  activerecord:
+    models:
+      news_item:
+        one: "News item"
+        other: "News items"
+      news_item/data: 
+        one: "News item"
+        other: "News items"
+      calendar_item: "Calendar"
+    attributes:
+      news_item/data:
+        title: "Title"
+        date: "Date"
+        introduction: "Introduction"
+        raw_tags: "Tags"
+  news_item:
+    form:
+      image: "Image"
