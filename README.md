@@ -15,6 +15,12 @@ This is the demo implementation for [http://www.skylinecms.nl](Skyline) it's not
 to demonstrate most of Skyline's functionality but also as a reference for
 all Skyline developers.
 
+Before you get started
+----------------------
+
+The demo currently only has been tested with **Ruby 1.8.6**, **Bundler >= 0.7**, and **MySQL 5.x**. We're working
+on alternative versions that work with Sqlite3.
+
 Installation and usage
 ----------------------
 
