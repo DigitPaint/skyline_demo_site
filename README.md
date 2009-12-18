@@ -18,8 +18,10 @@ all Skyline developers.
 Before you get started
 ----------------------
 
-The demo currently only has been tested with **Ruby 1.8.6**, **Bundler >= 0.7**, and **MySQL 5.x**. We're working
-on alternative versions that work with Sqlite3.
+The demo currently only has been tested with **Ruby 1.8.6**, **Bundler >= 0.7**.
+The default database is now **SQLite3** and is packaged in this repository. You can still use
+**MySQL 5.x** but you have to bootstrap the database yourself (see below)
+
 
 Installation and usage
 ----------------------
@@ -36,16 +38,8 @@ Installation and usage
 
     cd skyline_demo_site
     gem bundle
-
-**4. Set up database.yml** We've included an example file in `config/database.example.yml`
-copy it and modify it to match your setup.
-    
-**5. Import the data** Create and import the database:
-
-    rake db:create
-    rake demo:setup
-    
-**6. Start the server** and enjoy Skyline!
+  
+**4. Start the server** and enjoy Skyline!
 
     ./script/server
     
@@ -61,6 +55,18 @@ Login:      editor@skylinecms.nl
 Password:   editor  
 
 If you're running into problems, don't hesitate to contact us!
+
+Using a MySQL database
+----------------------
+
+It's pretty straightforward:
+
+* Replace the line `gem "sqlite3-ruby"` with `gem "mysql"` in the Gemfile
+* Change the `database.yml` to match your configuration 
+* run `rake db:skyline:migrate`
+* run `rake db:migrate`
+* run `rake demo:setup`
+
 
 Copyright
 ---------
