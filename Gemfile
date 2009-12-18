@@ -1,4 +1,4 @@
 bundle_path "vendor/bundler_gems"
-gem "mysql"
-gem "skylinecms", "3.0.7"
+gem "sqlite3-ruby"
+gem "skylinecms", "3.0.8"
 disable_system_gems
