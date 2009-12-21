@@ -38,8 +38,14 @@ Installation and usage
 
     cd skyline_demo_site
     gem bundle
+    
+**4. Initialize the database** by setting up the development database and 
+importing all the data:
+
+    rake db:create
+    rake demo:setup
   
-**4. Start the server** and enjoy Skyline!
+**5. Start the server** and enjoy Skyline!
 
     ./script/server
     

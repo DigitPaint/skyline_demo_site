@@ -1,6 +1,7 @@
 .DS_Store
 log/*
 tmp/*
+db/*.sqlite3
 *.log
 config/deploy.rb
 Capfile
