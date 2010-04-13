@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091202152514) do
+ActiveRecord::Schema.define(:version => 20100330132355) do
 
   create_table "calendar_items", :force => true do |t|
     t.string   "title"
@@ -28,6 +28,36 @@ ActiveRecord::Schema.define(:version => 20091202152514) do
     t.integer  "integer"
     t.date     "publication_date"
     t.boolean  "published",        :default => false, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "order_products", :force => true do |t|
+    t.integer "order_id"
+    t.integer "product_id"
+    t.string  "title"
+    t.decimal "price"
+    t.integer "amount"
+  end
+
+  create_table "orders", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "town"
+    t.string   "country"
+    t.string   "email"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_data", :force => true do |t|
+    t.text     "title"
+    t.text     "url_part"
+    t.text     "teaser"
+    t.integer  "image_id"
+    t.integer  "integer"
+    t.decimal  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
