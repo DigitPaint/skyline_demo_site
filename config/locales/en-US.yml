@@ -8,9 +8,15 @@
       news_item:
         one: "News item"
         other: "News items"
+      product:
+        one: "Product"
+        other: "Products"
       news_item/data: 
         one: "News item"
         other: "News items"
+      product/data:
+        one: "Product"
+        other: "Products"
       calendar_item: "Calendar"
     attributes:
       news_item/data:
@@ -18,6 +24,14 @@
         date: "Date"
         introduction: "Introduction"
         raw_tags: "Tags"
+      product/data:
+        title: "Title"
+        date: "Date"
+        teaser: "Teaser"
+        raw_tags: "Tags"
   news_item:
+    form:
+      image: "Image"
+  product:
     form:
       image: "Image"
