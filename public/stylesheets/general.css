@@ -543,6 +543,8 @@ dl.highlight ul.links,
 dl.attention dt,
 h3,
 dl.news,
+dl.products,
+div.shopping_basket,
 table.comparison,
 div.text,
 #content ul.links,
@@ -558,13 +560,17 @@ div.code code{
   line-height: 16px;
 }
 
-dl.news div.text{
+dl.news div.text,
+div.shopping_basket div.text,
+dl.products div.text{
   font-size: 1em;
 }
 
 div.code,
 dl.attention,
 dl.news,
+div.shopping_basket,
+dl.products,
 #content ul.links,
 div.text p,
 div.text ul,
@@ -651,9 +657,72 @@ div.text img.block{
   display: block;
 }
 
-
 /* Insets */
 .full h2,
 .full div.inset{
   margin-right: 0;
+}
+
+/* ======== */
+/* = Shop = */
+/* ======== */
+
+dl.products dt{
+  font-weight: bold;
+}
+
+dl.products dd{
+  margin-bottom: 1em;
+}
+
+dl.products form{
+  display: inline;
+}
+
+dl.products form input{
+  vertical-align: bottom;
+}
+
+div.shopping_basket table{
+  width: 100%;
+  padding-bottom: 2em;
+}
+
+div.shopping_basket table tr.total td{
+  padding-top: 1em;
+  border-top: 1px solid #dfdfdf;
+  font-weight: bold;
+}
+
+div.shopping_basket table td.image{
+  width:50px;
+}
+
+div.shopping_basket table td.title{
+  width: 150px;
+  font-weight: bold;
+}
+
+div.shopping_basket table td.amount{
+  width: 100px;
+  text-align: right;
+}
+
+div.shopping_basket table td.price{
+  text-align: right;
+}
+
+div.shopping_basket table td.buttons form{
+  display: inline;
+}
+
+div.shopping_basket p.error,
+div.shopping_basket div.error{
+  color: red;
+  margin-bottom: 1em;
+}
+
+div.shopping_basket div.error{
+  display: inline;
+  margin-left: 1em;
 }
