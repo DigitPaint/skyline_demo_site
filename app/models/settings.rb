@@ -4,13 +4,14 @@ class Settings < ActiveRecord::Base
   
   referable_serialized_content  :news_items_overview_page,
                                 :news_item_detail_page,
+                                :shop_page,
                                 :calendar_items_overview_page,
                                 :results_page,
                                 :sitemap_page,
                                 :error404_page
                                   
   page :content, :title => "Content pages" do |p|
-    p.description "Instellingen voor content paginas."    
+    p.description "Settings for content pages."    
       
     p.field_group :news, :title => "News" do |g|  
       g.field :news_item_detail_page_id do |f|
