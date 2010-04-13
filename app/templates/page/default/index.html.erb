@@ -8,12 +8,11 @@
     <div id="body">
       <div class="wrapper">        
         <div id="content">
-          <h1><%= article_version.data.title %></h1>
+          <h1><%= @title.present? ? @title : article_version.data.title %></h1>
           <% assign(:heading_level,1) %>
-
           <% page_sections.each_with_index do |page_section, i| %>
             <% next if i == 1 || page_section.nil? %>
-            <%= render_collection(page_section) %>
+            <%= render_collection(page_section) unless @skip_sections %>
           <% end %>
 
           <%= @body %>
