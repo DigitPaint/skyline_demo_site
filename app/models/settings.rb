@@ -30,6 +30,16 @@ class Settings < ActiveRecord::Base
     end
   end
   
+  page :shop, :title => "Shop" do |p|
+    p.description "Settings for shop."
+    
+    p.field :shop_page_id do |f|
+      f.editor = :page_browser
+      f.label = ["Shop items",""]
+      f.description = "The page used to display pages related to the shop"
+    end
+  end
+  
   if Skyline::Configuration.solr_indexing
   
     page :search, :title => "Search" do |p|
