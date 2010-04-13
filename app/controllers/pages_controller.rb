@@ -86,7 +86,18 @@ class PagesController < Skyline::Site::PagesController
         if @news_item
           renderer.assigns.update(:renderable_object => @news_item)
         end
-      end      
+      end 
+      
+      # ========
+      # = Shop =
+      # ========
+      if @page_version.page.id == Settings.get(:shop, :shop_page_id).andand.to_i && @url_parts.any?
+        @product = Product.find_by_url_part(@url_parts.join("/")).andand.published_publication
+        if @product
+          renderer.assigns.update(:skip_sections => true)
+          renderer.assigns.update(:renderable_object => @product)
+        end
+      end
       
       # ===========
       # = Sitemap =
@@ -103,9 +114,7 @@ class PagesController < Skyline::Site::PagesController
       if renderer.assigns[:body].blank? && renderer.assigns[:renderable_object].blank? && @url_parts.empty?
         renderer.assigns.update(:body => self.response.body)
       end
-      
-      logger.warn "===========> #{renderer.assigns.inspect}"
-      
+          
       render :text => renderer.render(@page_version) if renderer.assigns[:body].present? || renderer.assigns[:renderable_object].present?
     end    
 
