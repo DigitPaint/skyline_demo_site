@@ -1,0 +1,43 @@
+<div class="section" id="product_data">
+  <div class="head">    		      	
+  	<%= a.object.class.human_name %>
+  </div>
+  <div class="body">  
+    <table class="fields">
+      <tbody>
+        <tr>
+          <th><%= vd.label_with_text :title %></th>
+          <td><%= vd.text_field :title, :class => "full" %></td>
+        </tr>
+        <tr>
+          <th><%= vd.label_with_text :url_part %></th>
+          <td><%= vd.text_field :url_part, :class => "full" %></td>
+        </tr>
+        <tr>
+          <th><%= t(:image, :scope => [:product, :form]) %></th>
+          <td><%= image_browser(vd, :image, {:skip_class => true}) %></td>
+        </tr>
+        <tr>
+          <th><%= vd.label_with_text :teaser %></th>
+          <td><%= vd.text_area :teaser, :class => "full", :rows => 4 %></td>
+        </tr>
+        <tr>
+          <th><%= vd.label_with_text :raw_tags %></th>
+          <td>
+            <dl class="tagselector" id="news_item-tagselector">
+              <dt></dt>
+              <dd><%= vd.text_area :raw_tags, :rows => nil %></dd>
+              <dt class="tags"><%= t(:available_tags, :scope => [:media_file, :edit]) %></dt>
+              <dd class="tags">
+                <%= render :partial => "/skyline/tags/available_tags", :locals => {:tags => Product::Data.available_tags} %>
+              </dd>
+            </dl>              
+            <script type="text/javascript" charset="utf-8">
+	            new Skyline.TagSelector("<%= vd.dom_id :raw_tags %>","#news_item-tagselector .taglist li");                              
+            </script>
+          </td>
+        </tr>                           
+      </tbody>
+    </table>
+  </div>      
+</div>
