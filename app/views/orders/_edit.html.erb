@@ -1,0 +1,41 @@
+<div class="shopping_basket">
+  <table>
+    <% @order.order_products.each do |op| %>
+      <% if op.present? %>
+        <tr>
+          <td class="image">
+            <% if op.product.published_publication_data.image.present? %>
+              <%= image_tag(op.product.published_publication_data.image.url("50x50"), :alt => op.title) %>
+            <% else %>
+              <%= image_tag("shop-50x50.gif") %>
+            <% end %>
+          </td>
+          <td class="title"><%= op.title %></td>
+          <td class="amount"><%= "#{op.amount} x "  %><%= number_to_currency(op.price, :unit => "&euro;") %></td>
+          <td class="buttons">
+            <% form_for @order, :method => :put do |f|%>
+              <%= hidden_field_tag "amount", op.amount - 1 %>
+              <%= hidden_field_tag "product_id", op.product.id %>
+              <%= image_submit_tag "/images/icons/minus.png" %>
+            <% end %>
+            
+            <% form_for @order, :method => :put do |f|%>
+              <%= hidden_field_tag "amount", op.amount + 1 %>
+              <%= hidden_field_tag "product_id", op.product.id %>
+              <%= image_submit_tag "/images/icons/add.png" %>
+            <% end %>
+          </td>
+          <td class="price"><%= "#{number_to_currency((op.amount * op.price), :unit => '&euro;')}" %></td>
+        </tr>
+      <% end %>
+    <% end %>
+    <tr class="total">
+      <td>&nbsp;</td>
+      <td class="title">Total</td>
+      <td class="price" colspan="3"><%= number_to_currency(total_price(@order), :unit => "&euro") %></td>
+    </tr>
+  </table>
+  <div class="text">
+    <%= link_to "Continue shopping", Settings.andand.get_page(:shop, :shop_page_id).url %> | <%= link_to "Confirm order", :action => 'show' %>
+  </div>
+</div>
