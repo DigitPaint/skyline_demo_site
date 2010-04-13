@@ -18,6 +18,6 @@ Skyline::Configuration.configure do |config|
   
   config.sections[:default] -= ["content_item_section"]
   
-  config.articles = ["NewsItem"]
+  config.articles = ["NewsItem", "Product"]
   config.content_classes = ["CalendarItem"]
 end
