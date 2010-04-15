@@ -1,0 +1,25 @@
+<% if order.order_products.any? %>
+  <dl class="highlight">
+    <dt><img src="/images/icons/cart.png" alt="Shopping basket" />Shopping basket</dt>
+    <dd>
+      <ul class="links">
+        <% order.order_products.each do |op| %>
+          <li>
+            <a href="<%= op.product.url %>">
+              <strong><%= op.title %></strong><br />
+              <span class="more"> <%= "#{op.amount} x "  %><%= number_to_currency(op.price, :unit => "&euro;") %> </span>
+              <span class="price"><%= "#{number_to_currency((op.amount * op.price), :unit => '&euro;')}" %></span>
+            </a>
+          </li>  
+        <%end%>
+        <li class="total">
+          <a href="<%= url_for(:controller => :orders, :action => :edit) %>">
+            <strong>Total</strong>
+            <span class="more"><%= number_to_currency(total_price(order), :unit => "&euro") %></span>
+            <img src="/images/icons/arrow_right.png" alt="View basket" />
+          </a>
+        </li>
+      </ul>    
+    </dd>
+  </dl>
+<% end %>
