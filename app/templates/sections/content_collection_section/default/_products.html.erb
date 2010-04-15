@@ -1,28 +1,32 @@
 <% if products.any? %>
-  <dl class="products">
-    <% products.each do |p| %>
-      <dt class="title"><%=p.title%></dt>
-      <dd>
-        <div class="text">
-          <% if p.image.present? %>
-            <%= image_tag(p.image.url("100x100"), :alt => p.image.title) %>
-          <% else %>
-            <%= image_tag("shop-100x100.gif") %>
+  <% products.each do |p| %>
+    <div class="feature left">
+      <div class="media">
+        <% image = capture do %>
+          <% if p.image.present? %>    
+            <img src="<%= p.image.url("100x100")%>" alt="<%= p.image.title %>" />
           <% end %>
+        <% end %>
+
+        <%= link_to(image, p.product.url, :title => p.title) %>
+      </div>
+      <div class="content"><span class="price"><%= number_to_currency(p.price, :unit => '&euro;') %></span>
+        <h2><%= link_to(p.title, p.product.url, :title => p.title) %></h2>
+        <div class="text">
           <%=p.teaser%>
         </div>
-      </dd>
-      <dd>
-        <div class="text">
+      </div>
+       <div class="shop-navigation">   
+         <div class="text">
           <%= link_to "View details", p.product.url %> | 
-          
+        
           <% form_tag({:controller => "orders", :action => "update"}, :method => :put) do %>
             <%= hidden_field_tag "product_id", p.product.id %>
             <%= image_submit_tag "/images/icons/cart.png" %>
           <% end %>
         </div>
-      </dd>
-      </li>
-    <%end%>
-  </ul>
+      
+      </div>
+    </div>
+  <%end%>
 <% end %>

@@ -1,17 +1,25 @@
-<h2><%=article_version.data.title%></h2>
-<div class="text">
-  <% if article_version.data.image.present? %>
-    <%= image_tag(article_version.data.image.url("100x100"), :alt => article_version.data.image.title) %>
-  <% else %>
-    <%= image_tag("shop-100x100.gif") %>
-  <% end %>
-</div>
+<div class="feature left">
+  <div class="media">
+    <% if article_version.data.image.present? %>
+      <%= image_tag(article_version.data.image.url("100x100"), :alt => article_version.data.image.title) %>
+    <% else %>
+      <%= image_tag("shop-100x100.gif") %>
+    <% end %>
+  </div>
+  <div class="content"><span class="price"><%= number_to_currency(article_version.data.price, :unit => '&euro;') %></span>
+    <h2><%= article_version.data.title %></h2>
+    <div class="text">
+      <strong><%= article_version.data.teaser %></strong>
+    </div>
+    <%= render_collection(article_version.sections) %>
+    <div class="shop-navigation">   
+       <div class="text">        
+        <% form_tag({:controller => "orders", :action => "update"}, :method => :put) do %>
+          <%= hidden_field_tag "product_id", article_version.article.id  %>
+          <%= image_submit_tag "/images/icons/cart.png" %>
+        <% end %>
+      </div>
 
-<%= render_collection(article_version.sections) %>
-
-<div class="text">
-  <% form_tag({:controller => "orders", :action => "update"}, :method => :put) do %>
-    <%= hidden_field_tag "product_id", article_version.article.id %>
-    <%= submit_tag "Add to cart" %>
-  <% end %>
+    </div>
+  </div>
 </div>

@@ -306,6 +306,13 @@ dl.highlight dt{
 dl.highlight dd{ background-color: #F1F1F1; }
 dl.highlight dd li a:hover{ background: #daf2d1; }
 
+dl.highlight img{
+  vertical-align: bottom;
+  padding: 0 5px 0 0;
+}
+dl.highlight dd li.total img{
+  float: right;
+}
 /* ========== */
 /* = Events = */
 /* ========== */
@@ -617,6 +624,10 @@ h2{
   margin-top: 2em;
 }
 
+h2 a{
+  color: #333;
+  font-size: 1em;
+}
 /* lists */
 div.text li ul,
 div.text li ol{
@@ -725,4 +736,101 @@ div.shopping_basket div.error{
 div.shopping_basket div.error{
   display: inline;
   margin-left: 1em;
+}
+
+/* ============ */
+/* = Features = */
+/* ============ */
+
+div.feature{
+  margin-top: 36px; /* This is the same as the H2 */
+  float: none;
+  padding: 0;
+}
+
+div.feature div.media{
+  width: 100px;
+}
+
+div.feature form{
+ display: inline;
+}
+
+div.feature form input{
+  vertical-align: bottom;
+}
+
+div.feature div.content{
+  padding-bottom: 1em; 
+}
+
+div.feature span.price{
+  float: right;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  font-weight: bold;
+  vertical-align: bottom;
+}
+
+div.left div.content{
+  margin-right: 0px;
+  margin-left: 110px;
+}
+
+div.right div.content{
+  margin-right: 110px;
+  margin-left: 0;
+}
+
+div.submit{
+  text-align: right;
+}
+
+div.submit button{
+  float: right;
+}
+
+div.text div.submit{
+  float: right;
+}
+/* =========== */
+/* = Buttons = */
+/* =========== */
+a.button,
+button{
+  font-size: 1.2em;
+  background: url(../images/backgrounds/button-small.gif) 0 0 no-repeat;
+  color: #38A200;
+  float: left;
+}
+
+div.text a.button:hover{
+  text-decoration: none;
+}
+
+.text a.button,
+form button{
+  font-size: 0.92em;
+  text-decoration: none;
+}
+
+a.button span,
+button span{
+  float: left;
+  padding: 0 13px 0 11px;  
+  line-height: 20px;
+  vertical-align: middle;
+  background: url(../images/backgrounds/button-small.gif) 100% -30px no-repeat;  
+}
+
+/* ======== */
+/* = Form = */
+/* ======== */
+
+input.text{
+  border: none;
+  padding: 1px 5px;
+  border-bottom: 1px solid #f5f5f5;
+  border-right: 1px solid #efefef;
+  background: url(../images/backgrounds/input-text.gif) 0 0 no-repeat;
 }
