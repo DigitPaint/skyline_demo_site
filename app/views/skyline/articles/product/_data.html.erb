@@ -22,6 +22,10 @@
           <td><%= vd.text_area :teaser, :class => "full", :rows => 4 %></td>
         </tr>
         <tr>
+          <th><%= vd.label_with_text :price %></th>
+          <td><%= vd.text_field :price, :class => "number" %></td>
+        </tr>
+        <tr>
           <th><%= vd.label_with_text :raw_tags %></th>
           <td>
             <dl class="tagselector" id="news_item-tagselector">

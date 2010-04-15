@@ -28,6 +28,7 @@
         title: "Title"
         date: "Date"
         teaser: "Teaser"
+        price: "Price"
         raw_tags: "Tags"
   news_item:
     form:
