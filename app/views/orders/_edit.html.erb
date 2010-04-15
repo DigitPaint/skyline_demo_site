@@ -35,7 +35,52 @@
       <td class="price" colspan="3"><%= number_to_currency(total_price(@order), :unit => "&euro") %></td>
     </tr>
   </table>
-  <div class="text">
-    <%= link_to "Continue shopping", Settings.andand.get_page(:shop, :shop_page_id).url %> | <%= link_to "Confirm order", :action => 'show' %>
-  </div>
+  <% if @confirm %>
+    <h2>Personal details</h2>
+
+    <% if @order.errors.size > 0 %>
+      <p class="error">
+        Not all the fields are filled in properly, please check your input and try again.
+      </p>
+    <% end %>
+
+    <% form_for @order, :url => { :action => "update" } do |f| %>
+      <%= f.hidden_field :status, :value => "Confirmed" %>
+      <table>
+        <tr>
+          <th><%= f.label :name %>*</th>
+          <td><%= f.text_field :name, :class => "text" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :address %>*</th>
+          <td><%= f.text_field :address, :class => "text" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :town %>*</th>
+          <td><%= f.text_field :town, :class => "text" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :country %>*</th>
+          <td><%= f.text_field :country, :class => "text" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :email %>*</th>
+          <td><%= f.text_field :email, :class => "text" %></td>
+        </tr>      
+      </table>
+      <div class="submit">
+        <button><span>Confirm order</span></button>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="text">
+      <%= link_to "Continue shopping", Settings.andand.get_page(:shop, :shop_page_id).url %> 
+      <div class="submit">
+        <% form_for @order, :url => {:action => "edit"}, :html => {:method => :get} do |f| %>
+          <%= hidden_field_tag "status", "confirm" %>
+          <button><span>Checkout order</span></button>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>

@@ -25,18 +25,16 @@ class OrdersController < ApplicationController
         render_on_page :template => "orders/confirmation", :title => "Thank you"
         
       else
-        render_on_page :template => "orders/show", :title => "Order details"
+        @confirm = true
+        render_on_page :template => "orders/edit", :title => "Order details"
       end
     end
   end
   
-  def show
-    @order = Order.current_order(session[:order_id])
-    render_on_page :title => "Order details"
-  end
-  
   def edit
     @order = Order.current_order(session[:order_id])
+    @confirm = params[:status] == "confirm" ? true : false
+    
     render_on_page :title => "Shopping basket"
   end
   
@@ -51,10 +49,13 @@ class OrdersController < ApplicationController
   def render_on_page(*args)
     options = args.extract_options!
     renderer = Skyline::Site.new.renderer(:controller => self)
+    
     renderer.assigns[:skip_sections] = true if @skip_sections
     renderer.assigns[:title] = options[:title] if options[:title]
+    renderer.assigns[:no_basket] = true
     
     renderer.assigns[:body] = render_to_string options
+        
     render :text => renderer.render(@page_version)
   end
 end
