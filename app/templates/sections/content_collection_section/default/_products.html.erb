@@ -16,16 +16,16 @@
           <%=p.teaser%>
         </div>
       </div>
-       <div class="shop-navigation">   
-         <div class="text">
-          <%= link_to "View details", p.product.url %> | 
-        
-          <% form_tag({:controller => "orders", :action => "update"}, :method => :put) do %>
-            <%= hidden_field_tag "product_id", p.product.id %>
-            <%= image_submit_tag "/images/icons/cart.png" %>
-          <% end %>
+      <div class="shop-navigation">   
+        <div class="text">
+          <%= link_to "View details", p.product.url %>&nbsp;
+          <div class="submit">
+            <% form_tag({:controller => "orders", :action => "update"}, :method => :put) do %>
+              <%= hidden_field_tag "product_id", p.product.id %>
+              <button><span>Add to basket</span></button>
+            <% end %>
+          </div>
         </div>
-      
       </div>
     </div>
   <%end%>

@@ -13,11 +13,14 @@
           </li>  
         <%end%>
         <li class="total">
-          <a href="<%= url_for(:controller => :orders, :action => :edit) %>">
-            <strong>Total</strong>
-            <span class="more"><%= number_to_currency(total_price(order), :unit => "&euro") %></span>
-            <img src="/images/icons/arrow_right.png" alt="View basket" />
-          </a>
+          <strong>Total</strong>
+          <span class="more"><%= number_to_currency(total_price(order), :unit => "&euro") %></span>
+          <div class="submit">
+            <% form_for order, :url => {:controller => :orders, :action => "edit"}, :html => {:method => :get} do |f| %>
+              <%= hidden_field_tag "status", "confirm" %>
+              <button><span>Checkout order</span></button>
+            <% end %>
+          </div>
         </li>
       </ul>    
     </dd>

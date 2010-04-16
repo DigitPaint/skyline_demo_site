@@ -328,7 +328,8 @@ dl.highlight   .links li{
   background: none;
 }
 
-dl.highlight .links a{
+dl.highlight .links a,
+dl.highlight .links li.total{
   display: block;
   color: #666;
   padding: 7px 14px;
@@ -833,4 +834,13 @@ input.text{
   border-bottom: 1px solid #f5f5f5;
   border-right: 1px solid #efefef;
   background: url(../images/backgrounds/input-text.gif) 0 0 no-repeat;
+}
+
+div.submit:after{
+  content: ".";
+	visibility: hidden;
+	clear: both;
+	display: block;
+	height: 0px;
+}
 }
