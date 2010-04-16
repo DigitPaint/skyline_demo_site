@@ -7,7 +7,9 @@ class Order < ActiveRecord::Base
   
   def self.current_order(order_id = nil)
     if order_id.present?
-      order = self.find_by_id(order_id)
+      unless order = self.find_by_id(order_id)
+        order = self.new
+      end
     else
       order = self.new 
     end
