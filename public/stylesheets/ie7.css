@@ -6,7 +6,8 @@
 #navigation li,
 #navigation li a,
 ul.links li,
-ul.links li a{
+ul.links li a,
+div.submit{
   zoom: 1;
 }
 

@@ -16,7 +16,7 @@
        <div class="text">        
         <% form_tag({:controller => "orders", :action => "update"}, :method => :put) do %>
           <%= hidden_field_tag "product_id", article_version.article.id  %>
-          <button><span>Add to basket</span></button>
+          <button type="submit"><span>Add to basket</span></button>
         <% end %>
       </div>
 

@@ -18,7 +18,7 @@
           <div class="submit">
             <% form_for order, :url => {:controller => :orders, :action => "edit"}, :html => {:method => :get} do |f| %>
               <%= hidden_field_tag "status", "confirm" %>
-              <button><span>Checkout order</span></button>
+              <button type="submit"><span>Checkout order</span></button>
             <% end %>
           </div>
         </li>
