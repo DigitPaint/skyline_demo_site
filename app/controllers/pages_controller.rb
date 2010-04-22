@@ -91,7 +91,7 @@ class PagesController < Skyline::Site::PagesController
       # ========
       # = Shop =
       # ========
-      if @page_version.page.id == Settings.get(:shop, :shop_page_id).andand.to_i && @url_parts.any?
+      if @page_version.page.id == Settings.get(:shop, :product_detail_page_id).andand.to_i && @url_parts.any?
         @product = Product.find_by_url_part(@url_parts.join("/")).andand.published_publication
         if @product
           renderer.assigns.update(:skip_sections => true)

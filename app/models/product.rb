@@ -56,7 +56,7 @@ class Product < Skyline::Article
   end
   
   def url
-    if p = Settings.get_page(:shop, :shop_page_id)
+    if p = Settings.get_page(:shop, :product_detail_page_id)
       "#{p.url}/#{self.url_part}"
     else
       nil
