@@ -18,7 +18,7 @@ all Skyline developers.
 Before you get started
 ----------------------
 
-The demo currently only has been tested with **Ruby 1.8.6**, **Bundler >= 0.7**.
+The demo currently only has been tested with **Ruby 1.8.6**, **Bundler 0.7 or 0.8**
 The default database is now **SQLite3** and is packaged in this repository. You can still use
 **MySQL 5.x** but you have to bootstrap the database yourself (see below)
 
@@ -28,7 +28,7 @@ Installation and usage
 
 **1. Bundler** We're using bundler in this implementation so:
 
-    sudo gem install bundler
+    sudo gem install bundler -v 0.8
 
 **2. Get the demo** Clone the git repository or download the zip from github.
 
