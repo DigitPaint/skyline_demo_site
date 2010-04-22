@@ -20,7 +20,7 @@
         <div class="text">
           <%= link_to "View details", p.product.url %>&nbsp;
           <div class="submit">
-            <% form_tag({:controller => "orders", :action => "update"}, :method => :put) do %>
+            <% form_tag({:controller => "/orders", :action => "update"}, :method => :put) do %>
               <%= hidden_field_tag "product_id", p.product.id %>
               <button type="submit"><span>Add to basket</span></button>
             <% end %>

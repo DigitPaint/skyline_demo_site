@@ -14,7 +14,7 @@
     <%= render_collection(article_version.sections) %>
     <div class="shop-navigation">   
        <div class="text">        
-        <% form_tag({:controller => "orders", :action => "update"}, :method => :put) do %>
+        <% form_tag({:controller => "/orders", :action => "update"}, :method => :put) do %>
           <%= hidden_field_tag "product_id", article_version.article.id  %>
           <button type="submit"><span>Add to basket</span></button>
         <% end %>
