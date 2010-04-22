@@ -5,6 +5,7 @@ class Settings < ActiveRecord::Base
   referable_serialized_content  :news_items_overview_page,
                                 :news_item_detail_page,
                                 :shop_page,
+                                :product_detail_page,
                                 :calendar_items_overview_page,
                                 :results_page,
                                 :sitemap_page,
@@ -37,6 +38,12 @@ class Settings < ActiveRecord::Base
       f.editor = :page_browser
       f.label = ["Shop items",""]
       f.description = "The page used to display pages related to the shop"
+    end
+    
+    p.field :product_detail_page_id do |f|
+      f.editor = :page_browser
+      f.label = ["Shop items",""]
+      f.description = "The page used to display a product"
     end
   end
   
