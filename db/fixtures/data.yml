@@ -136,7 +136,7 @@ settings:
       --- !map:HashWithIndifferentAccess 
       order_confirmation_page_id: "42"
       shop_page_id: "40"
-      product_detail_page_id: "43"
+      product_detail_page_id: "45"
       shopping_basket_page_id: "44"
       product_overview_page_id: "40"
 
@@ -173,8 +173,8 @@ skyline_article_versions:
     - 2009-08-06 15:41:26
     - 2010-04-13 08:48:46
     - "5"
-    - 2010-04-15 12:24:45
-    - 2010-04-15 12:24:45
+    - 2010-04-22 15:36:57
+    - 2010-04-22 15:36:57
     - "1"
     - Skyline::Page::Data
   - - "2"
@@ -1677,8 +1677,8 @@ skyline_article_versions:
     - 2010-03-30 14:17:07
     - 2010-04-15 12:36:42
     - "5"
-    - 2010-04-15 12:43:41
-    - 2010-04-15 12:36:45
+    - 2010-04-22 15:36:53
+    - 2010-04-22 15:36:01
     - "6"
     - Product::Data
   - - "198"
@@ -1693,8 +1693,8 @@ skyline_article_versions:
     - 2010-03-30 14:28:29
     - 2010-04-13 08:50:14
     - "5"
-    - 2010-04-13 09:08:28
-    - 2010-04-13 09:05:32
+    - 2010-04-22 15:37:13
+    - 2010-04-22 15:37:02
     - "93"
     - Skyline::Page::Data
   - - "202"
@@ -1777,6 +1777,38 @@ skyline_article_versions:
     - 2010-04-15 12:36:42
     - "12"
     - Product::Data
+  - - "215"
+    - Skyline::Variant
+    - "45"
+    - 
+    - "5"
+    - main
+    - "5"
+    - "5"
+    - default
+    - 2010-04-22 15:35:08
+    - 2010-04-22 15:35:29
+    - "5"
+    - 2010-04-22 15:35:33
+    - 2010-04-22 15:35:33
+    - "106"
+    - Skyline::Page::Data
+  - - "216"
+    - Skyline::Publication
+    - "45"
+    - "215"
+    - "5"
+    - main
+    - "5"
+    - "5"
+    - default
+    - 2010-04-22 15:35:33
+    - 2010-04-22 15:35:33
+    - "5"
+    - 2010-04-22 15:35:29
+    - 2010-04-22 15:35:29
+    - "107"
+    - Skyline::Page::Data
 
 --- 
 skyline_articles: 
@@ -2188,6 +2220,20 @@ skyline_articles:
     - "105"
     - "198"
     - "93"
+  - - "45"
+    - "40"
+    - "216"
+    - "1"
+    - 2010-04-22 15:35:08
+    - 2010-04-22 15:35:33
+    - false
+    - product
+    - false
+    - 
+    - Skyline::Page
+    - "107"
+    - "215"
+    - "106"
 
 --- 
 skyline_associated_tags: 
@@ -6547,6 +6593,314 @@ skyline_media_cache:
     - /media_dirs/23/media_files_data/100x100/cup.jpg
     - MediaFile
     - "24"
+  - - "1920"
+    - /media_dirs/10/media_files_data/206x133/edinburgh.jpg
+    - MediaFile
+    - "16"
+  - - "1921"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1922"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1923"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1924"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1925"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1926"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1927"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1928"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1929"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1930"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1931"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1932"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1933"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1934"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1935"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1936"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1937"
+    - /media_dirs/23/media_files_data/50x50/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1938"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1939"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1940"
+    - /media_dirs/23/media_files_data/50x50/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1941"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1942"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1943"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1944"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1945"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1946"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1947"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1948"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1949"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1950"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1951"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1952"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1953"
+    - /media_dirs/23/media_files_data/50x50/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1954"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1955"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1956"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1957"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1958"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1959"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1960"
+    - /media_dirs/23/media_files_data/50x50/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1961"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1962"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1963"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1964"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1965"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1966"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1967"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1968"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1969"
+    - /media_dirs/23/media_files_data/50x50/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1970"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1971"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1972"
+    - /media_dirs/23/media_files_data/50x50/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1973"
+    - /media_dirs/23/media_files_data/50x50/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1974"
+    - /skyline/media_dirs/10/media_files_data/206x133/edinburgh.jpg
+    - MediaFile
+    - "16"
+  - - "1975"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1976"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1977"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1978"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1979"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1980"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1981"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1982"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1983"
+    - /skyline/media_dirs/10/media_files_data/206x133/edinburgh.jpg
+    - MediaFile
+    - "16"
+  - - "1984"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1985"
+    - /media_dirs/10/media_files_data/206x133/edinburgh.jpg
+    - MediaFile
+    - "16"
+  - - "1986"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1987"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1988"
+    - /media_dirs/23/media_files_data/50x50/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1989"
+    - /media_dirs/23/media_files_data/50x50/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1990"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1991"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
+  - - "1992"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1993"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1994"
+    - /skyline/media_dirs/10/media_files_data/206x133/edinburgh.jpg
+    - MediaFile
+    - "16"
+  - - "1995"
+    - /media_dirs/23/media_files_data/100x100/shirt.jpg
+    - MediaFile
+    - "25"
+  - - "1996"
+    - /media_dirs/23/media_files_data/100x100/cup.jpg
+    - MediaFile
+    - "24"
 
 --- 
 skyline_media_nodes: 
@@ -7342,6 +7696,20 @@ skyline_page_data:
     - true
     - ""
     - Shop
+    - ""
+    - ""
+  - - "106"
+    - product
+    - false
+    - ""
+    - Product
+    - ""
+    - ""
+  - - "107"
+    - product
+    - false
+    - ""
+    - Product
     - ""
     - ""
 
