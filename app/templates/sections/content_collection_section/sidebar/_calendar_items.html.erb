@@ -5,10 +5,10 @@
         <ul class="links">
         <% calendar_items.each do |item| %>
           <li>
-            <% if p = page_from_setting(:content, :calendar_items_overview_page_id) %>
+            <% if p = Settings.get_page(:content, :calendar_items_overview_page_id) %>
               <a href="<%= p.url %>">
             <% else %>
-              <a name="<%calendar_item.id%>">
+              <a name="<%= item.id %>">
             <% end %>
             <strong><%= l(item.calendar_date,:format => :long) %></strong><br />
             <%= item.title %>
