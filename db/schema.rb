@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100330132355) do
+ActiveRecord::Schema.define(:version => 20100409073447) do
 
   create_table "calendar_items", :force => true do |t|
     t.string   "title"
@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(:version => 20100330132355) do
     t.text     "teaser"
     t.string   "title"
     t.string   "url_part"
-    t.text     "body"
+    t.text     "body",             :limit => 16777215
     t.integer  "image_id"
     t.integer  "integer"
     t.date     "publication_date"
-    t.boolean  "published",        :default => false, :null => false
+    t.boolean  "published",                            :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20100330132355) do
     t.integer "order_id"
     t.integer "product_id"
     t.string  "title"
-    t.decimal "price"
+    t.integer "price",      :limit => 10, :precision => 10, :scale => 0
     t.integer "amount"
   end
 
@@ -56,8 +56,7 @@ ActiveRecord::Schema.define(:version => 20100330132355) do
     t.text     "url_part"
     t.text     "teaser"
     t.integer  "image_id"
-    t.integer  "integer"
-    t.decimal  "price"
+    t.integer  "price",      :limit => 10, :precision => 10, :scale => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -104,13 +103,14 @@ ActiveRecord::Schema.define(:version => 20100330132355) do
   end
 
   add_index "skyline_articles", ["parent_id", "position"], :name => "index_skyline_pages_on_page_id_and_position"
-  add_index "skyline_articles", ["parent_id"], :name => "index_skyline_pages_on_page_id_and_in_navigation"
 
   create_table "skyline_associated_tags", :force => true do |t|
     t.integer "taggable_id"
     t.integer "tag_id"
     t.string  "taggable_type", :default => "", :null => false
   end
+
+  add_index "skyline_associated_tags", ["taggable_type", "taggable_id", "tag_id"], :name => "sat_ttt"
 
   create_table "skyline_grants", :force => true do |t|
     t.integer "user_id"
@@ -177,7 +177,7 @@ ActiveRecord::Schema.define(:version => 20100330132355) do
   end
 
   create_table "skyline_referable_uris", :force => true do |t|
-    t.string   "uri"
+    t.text     "uri"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -247,11 +247,12 @@ ActiveRecord::Schema.define(:version => 20100330132355) do
   end
 
   create_table "skyline_sections_media_sections", :force => true do |t|
-    t.integer "linked_id"
+    t.integer "media_id"
     t.string  "alignment"
     t.integer "width"
     t.integer "height"
     t.text    "caption"
+    t.integer "link_id"
   end
 
   create_table "skyline_sections_page_fragment_sections", :force => true do |t|
@@ -284,7 +285,7 @@ ActiveRecord::Schema.define(:version => 20100330132355) do
   end
 
   create_table "skyline_sections_wysiwyg_sections", :force => true do |t|
-    t.text     "body"
+    t.text     "body",       :limit => 16777215
     t.datetime "created_at"
     t.datetime "updated_at"
   end
