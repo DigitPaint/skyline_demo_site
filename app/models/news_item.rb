@@ -3,8 +3,8 @@ class NewsItem < Skyline::Article
     set_table_name "news_item_data"
     
     include Skyline::Taggable
-    include Skyline::ContentItem     
-    include Skyline::Referable  
+    include Skyline::BelongsToReferable
+    include Skyline::HasManyReferablesIn
     
     has_one :news_item, :foreign_key => "published_publication_data_id", :class_name => "NewsItem"
   
@@ -18,21 +18,21 @@ class NewsItem < Skyline::Article
     # Default scope for site
     default_scope :order => "news_item_data.publication_date DESC"
     
-    referable_content :image
+    belongs_to_referable :image
   
-    referable_field :teaser, :body
+    has_many_referables_in :teaser, :body
       
     def publication_date
       self[:publication_date].present? ? self[:publication_date] : Date.today
     end
   end    
   
-  include Skyline::SearchableItem
+#  include Skyline::SearchableItem
   
-  searchable_field :title => lambda{|article| article.published_publication_data.title},
-                   :url => :url,
-                   :documentdate => lambda{|article| article.published_publication.updated_at.to_time.utc.iso8601(3)},
-                   :body => lambda{|article| article.published_publication.to_text}
+#  searchable_field :title => lambda{|article| article.published_publication_data.title},
+#                   :url => :url,
+#                   :documentdate => lambda{|article| article.published_publication.updated_at.to_time.utc.iso8601(3)},
+#                   :body => lambda{|article| article.published_publication.to_text}
     
   # Default scope for Skyline
   default_scope :include => :default_variant_data, :order => "news_item_data.publication_date DESC"

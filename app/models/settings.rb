@@ -1,6 +1,6 @@
 class Settings < ActiveRecord::Base
   include Skyline::Settings
-  include Skyline::ContentItem
+  include Skyline::BelongsToReferable
   
   referable_serialized_content  :news_items_overview_page,
                                 :news_item_detail_page,

@@ -2,12 +2,12 @@ class CalendarItem < ActiveRecord::Base
   include Skyline::Content::Content
   include Skyline::Content::Versioning::Versionable
   include Skyline::Taggable
-  include Skyline::ContentItem
-  include Skyline::Referable     
+  include Skyline::BelongsToReferable
+  include Skyline::HasManyReferablesIn 
   
   validates_presence_of :title
 
-  referable_field :description
+  has_many_referables_in :description
   
   default_scope :order => 'calendar_date ASC'
   

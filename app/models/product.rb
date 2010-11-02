@@ -3,8 +3,8 @@ class Product < Skyline::Article
     set_table_name "product_data"
     
     include Skyline::Taggable
-    include Skyline::ContentItem     
-    include Skyline::Referable
+    include Skyline::BelongsToReferable
+    include Skyline::HasManyReferablesIn
     
     has_one :product, :foreign_key => "published_publication_data_id", :class_name => "Product"
     
@@ -24,9 +24,9 @@ class Product < Skyline::Article
     # Default scope for site
     default_scope :order => "product_data.title ASC"
     
-    referable_content :image
+    belongs_to_referable :image
   
-    referable_field :teaser
+    has_many_referables_in :teaser
     
     protected
     def sanitize_url_part
