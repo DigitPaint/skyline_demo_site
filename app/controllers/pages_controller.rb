@@ -6,77 +6,6 @@ class PagesController < Skyline::Site::PagesController
     if @page_version      
       renderer.assigns[:bread_crumb] = @page_version.page.nesting.map{|p| [p.published_publication_data.navigation_title,p.url] }
       renderer.assigns[:skip_title] = false
-      renderer.assigns[:search_active] = (Settings.get(:specials, :sitemap_page_id).present? && Skyline::Configuration.solr_indexing)
-      
-      # =================
-      # = Searchresults =
-      # =================
-      if @page_version.page.id == Settings.get(:search, :results_page_id).andand.to_i && @url_parts.empty?
-        if solr = connect_to_solr
-          if params[:q].present?          
-            q = "*:*"
-            fq = []
-            if params[:search_type] == "files"
-              fq << "{!tag=cat}cat:\"#{escape_special_chars('Skyline::MediaFile')}\""
-            else 
-              fq << "{!tag=cat}!cat:\"#{escape_special_chars('Skyline::MediaFile')}\""            
-            end
-            q = escape_special_chars(params[:q])
-            
-            paginate_page = params[:page].present? ? params[:page] : 1
-            
-            solr_params = RSolr::Ext.map_params(
-              :q => q, 
-              :fq => fq, 
-              :hl => true, 
-              "hl.fl" => "text", 
-              "spellcheck.q" => params[:q], 
-              :spellcheck => true, 
-              "spellcheck.build" => true, 
-              :facet => "on", 
-              "facet.field" => "{!ex=cat}cat",
-              :page => paginate_page,
-              :per_page => 10
-            )
-            
-            raw_response = solr.spellCheckCompRH(solr_params)
-            
-            response = RSolr::Ext.wrap_response(raw_response)
-            
-            count_results = response["facet_counts"]["facet_fields"]["cat"].in_groups_of(2).inject({}) do |result, element|
-              result[element.first] = element.last.to_i
-              result
-            end
-                      
-            total_found = count_results.sum{|k, v| v}
-                                          
-            files_found = count_results["Skyline::MediaFile"].present? ? count_results["Skyline::MediaFile"] : 0
-            
-            pages_found = total_found - files_found
-            
-            results = response['response']['docs']
-            
-            hl = response['highlighting']
-            suggestions = response['spellcheck'] ? response['spellcheck']['suggestions'] : []
-          else
-            suggestions = []
-            results = []
-          end
-          
-          if params[:search_type] == "files"
-            search_results = render_to_string :partial => 'search/index_files', :locals => {:results => results, :hl => hl, :suggestions => suggestions, :search_term => params[:q], :pages_found => pages_found, :files_found => files_found}          
-          else
-            search_results = render_to_string :partial => 'search/index', :locals => {:results => results, :hl => hl, :suggestions => suggestions, :search_term => params[:q], :pages_found => pages_found, :files_found => files_found}
-          end
-            
-          searchtype = 'extended'
-        else
-          searchtype = nil
-          search_results = render_to_string :partial => 'search/error'
-        end
-        renderer.assigns[:skip_title] = true        
-        renderer.assigns.update(:body => search_results, :search_type => searchtype)
-      end
             
       # ============
       # = Newsitem =
@@ -146,18 +75,7 @@ class PagesController < Skyline::Site::PagesController
     str.gsub(/([\+\-\!\(\)\]\[\^\"\~\*\?\:\\]|(&&)|(\|\|))/, '\\\\\1')
   end
   helper_method :escape_special_chars
-  
-  def connect_to_solr
-    begin
-      solr = RSolr.connect
-      solr.send_request('/admin/ping')
-    rescue RSolr::RequestError => e
-      ErrorMailer.deliver_exception(e, "Solr not running") if Rails.env == 'production'
-      solr = false
-    end
-    solr
-  end
-  
+    
   def possibly_redirect
     return unless @page_version
     if redirect_section = @page_version.sections.detect{|section| section.sectionable.kind_of?(Skyline::Sections::RedirectSection)}

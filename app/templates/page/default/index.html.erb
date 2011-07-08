@@ -20,8 +20,6 @@
         </div>
         
         <div id="sidebar">
-          <%= render :partial => "default/search/search_extended" unless @search_type.blank?  %>   
-
           <%= render :partial => "default/order/show", :locals => {:order => Order.current_order(session[:order_id])} unless @no_basket %>
           
           <% if page_sections[1] %>

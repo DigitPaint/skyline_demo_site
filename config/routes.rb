@@ -1,6 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.connect 'search_suggestions', :controller => "search_suggestions", :action => "index"
-  
   map.resource :order
   map.connect 'orders/:action', :controller => "orders"
   

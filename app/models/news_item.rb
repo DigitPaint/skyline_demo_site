@@ -26,14 +26,7 @@ class NewsItem < Skyline::Article
       self[:publication_date].present? ? self[:publication_date] : Date.today
     end
   end    
-  
-#  include Skyline::SearchableItem
-  
-#  searchable_field :title => lambda{|article| article.published_publication_data.title},
-#                   :url => :url,
-#                   :documentdate => lambda{|article| article.published_publication.updated_at.to_time.utc.iso8601(3)},
-#                   :body => lambda{|article| article.published_publication.to_text}
-    
+      
   # Default scope for Skyline
   default_scope :include => :default_variant_data, :order => "news_item_data.publication_date DESC"
   

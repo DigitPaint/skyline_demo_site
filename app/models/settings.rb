@@ -46,21 +46,7 @@ class Settings < ActiveRecord::Base
       f.description = "The page used to display a product"
     end
   end
-  
-  if Skyline::Configuration.solr_indexing
-  
-    page :search, :title => "Search" do |p|
-      p.description "Settings for search"
     
-      p.field :results_page_id do |f|
-        f.editor = :page_browser
-        f.label = ["Search results",""]
-        f.description = "The page used for displaying search results."
-      end
-    end
-
-  end
-  
   page :specials, :title => "Special pages" do |p|
     p.description "Settings for special pages"    
     

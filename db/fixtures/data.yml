@@ -118,12 +118,6 @@ settings:
       sitemap_page_id: "15"
       error404_page_id: "14"
 
-  - - "3"
-    - search
-    - |
-      --- !map:HashWithIndifferentAccess 
-      results_page_id: "28"
-
   - - "4"
     - fragments
     - |

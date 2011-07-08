@@ -17,21 +17,6 @@
     </ul>
     
     <div id="service">  
-      <% if @search_active %>
-        <form id="search" action="<%= page_from_setting(:search, :results_page_id).url %>" method="get" class="search">
-          <input type="text" name="q" id="search-word"/>
-          <button type="submit">Search</button>
-        </form>
-        <script type="text/javascript">
-          document.addEvent('domready', function() {
-            var inputWord = $('search-word');
-            new Autocompleter.Request.JSON(inputWord, '/search_suggestions', {
-              'indicatorClass': 'autocompleter-loading',
-              ajaxOptions: {'method':'get'}
-            });
-          });
-        </script>
-      <% end %>
     </div>
   </div>
 </div>
