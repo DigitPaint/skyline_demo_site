@@ -10,3 +10,4 @@ _Store
 Thumbs.db
 bin
 vendor/bundler_gems/
+vendor/plugins/skyline/
