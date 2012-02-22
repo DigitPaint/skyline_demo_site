@@ -1,13 +1,4 @@
-.DS_Store
-log/*
-tmp/*
+.bundle
 db/*.sqlite3
-*.log
-config/deploy.rb
-Capfile
-public/skyline
-_Store
-Thumbs.db
-bin
-vendor/bundler_gems/
-vendor/plugins/skyline/
+log/*.log
+tmp/
