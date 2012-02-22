@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100409073447) do
+ActiveRecord::Schema.define(:version => 20100422122749) do
 
   create_table "calendar_items", :force => true do |t|
     t.string   "title"
@@ -19,15 +19,24 @@ ActiveRecord::Schema.define(:version => 20100409073447) do
     t.datetime "updated_at"
   end
 
+  create_table "creatures", :force => true do |t|
+    t.string   "name"
+    t.integer  "number_of_teeth"
+    t.integer  "species_id"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "news_item_data", :force => true do |t|
     t.text     "teaser"
     t.string   "title"
     t.string   "url_part"
-    t.text     "body",             :limit => 16777215
+    t.text     "body",             :limit => 2147483647
     t.integer  "image_id"
     t.integer  "integer"
     t.date     "publication_date"
-    t.boolean  "published",                            :default => false, :null => false
+    t.boolean  "published",                              :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -93,7 +102,7 @@ ActiveRecord::Schema.define(:version => 20100409073447) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "locked",                        :default => false, :null => false
-    t.string   "url_part",                      :default => ""
+    t.string   "url_part"
     t.boolean  "persistent",                    :default => false, :null => false
     t.string   "identifier"
     t.string   "type"
@@ -107,7 +116,7 @@ ActiveRecord::Schema.define(:version => 20100409073447) do
   create_table "skyline_associated_tags", :force => true do |t|
     t.integer "taggable_id"
     t.integer "tag_id"
-    t.string  "taggable_type", :default => "", :null => false
+    t.string  "taggable_type", :null => false
   end
 
   add_index "skyline_associated_tags", ["taggable_type", "taggable_id", "tag_id"], :name => "sat_ttt"
@@ -285,14 +294,14 @@ ActiveRecord::Schema.define(:version => 20100409073447) do
   end
 
   create_table "skyline_sections_wysiwyg_sections", :force => true do |t|
-    t.text     "body",       :limit => 16777215
+    t.text     "body",       :limit => 2147483647
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "skyline_tags", :force => true do |t|
     t.string "tag"
-    t.string "taggable_type", :default => "", :null => false
+    t.string "taggable_type", :null => false
   end
 
   add_index "skyline_tags", ["taggable_type", "tag"], :name => "index_skyline_tags_on_taggable_type_and_tag"
@@ -300,6 +309,14 @@ ActiveRecord::Schema.define(:version => 20100409073447) do
   create_table "skyline_test_sections", :force => true do |t|
     t.text     "body_a"
     t.text     "body_b"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "skyline_user_preferences", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "key"
+    t.string   "encoded_value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -320,6 +337,13 @@ ActiveRecord::Schema.define(:version => 20100409073447) do
     t.string  "versionable_type"
     t.integer "version"
     t.string  "author"
+  end
+
+  create_table "species", :force => true do |t|
+    t.string   "name"
+    t.boolean  "dangerous"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "test_content_objects", :force => true do |t|
