@@ -20,7 +20,8 @@ class CalendarItem < ActiveRecord::Base
         :label => "Titel"
   
   field :calendar_date,
-        :label => "Datum"
+        :label => "Datum",
+        :filterable => true        
   
   field :description, 
         :editor => :wysiwyg,
