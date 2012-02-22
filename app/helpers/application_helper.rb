@@ -35,6 +35,6 @@ module ApplicationHelper
       content_tag("li",content)
     end
     
-    content_tag("ul",lis.join("\n"), options_for_root)
+    content_tag("ul",lis.join("\n").html_safe, options_for_root).html_safe
   end
 end

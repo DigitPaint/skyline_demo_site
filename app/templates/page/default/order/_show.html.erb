@@ -7,16 +7,16 @@
           <li>
             <a href="<%= op.product.url %>">
               <strong><%= op.title %></strong><br />
-              <span class="more"> <%= "#{op.amount} x "  %><%= number_to_currency(op.price, :unit => "&euro;") %> </span>
-              <span class="price"><%= "#{number_to_currency((op.amount * op.price), :unit => '&euro;')}" %></span>
+              <span class="more"> <%= "#{op.amount} x "  %><%= number_to_currency(op.price, :unit => "&euro;").html_safe %> </span>
+              <span class="price"><%= "#{number_to_currency((op.amount * op.price), :unit => '&euro;')}".html_safe %></span>
             </a>
           </li>  
         <%end%>
         <li class="total">
           <strong>Total</strong>
-          <span class="more"><%= number_to_currency(total_price(order), :unit => "&euro") %></span>
+          <span class="more"><%= number_to_currency(total_price(order), :unit => "&euro;").html_safe %></span>
           <div class="submit">
-            <% form_for order, :url => {:controller => :orders, :action => "edit"}, :html => {:method => :get} do |f| %>
+            <% form_for edit_order_path(order), :html => {:method => :get} do |f| %>
               <%= hidden_field_tag "status", "confirm" %>
               <button type="submit"><span>Checkout order</span></button>
             <% end %>

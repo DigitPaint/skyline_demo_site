@@ -2,3 +2,9 @@
 db/*.sqlite3
 log/*.log
 tmp/
+.DS_Store
+config/database.yml
+public/skyline
+_Store
+Thumbs.db
+config/local.rb

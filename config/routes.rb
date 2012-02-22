@@ -1,10 +1,7 @@
-ActionController::Routing::Routes.draw do |map|
-  map.resource :order
-  map.connect 'orders/:action', :controller => "orders"
+SkylineDemoSite::Application.routes.draw do
+  resources :orders
+  resources :rss, :only => :show
   
-  map.rss 'rss/:model.:format', :controller => "rss", :action => "show"
-  map.form_response '*url/response/:action', :controller => "skyline/site/responses"
-  
-  # Default pages renderer.
-  map.connect '*url', :controller => "pages", :action => "show"
+  match '(*url)', :to => "pages#show", :constraints => Skyline::RouteConstraint
 end
+

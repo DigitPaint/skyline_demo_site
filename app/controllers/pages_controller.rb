@@ -3,10 +3,10 @@ class PagesController < Skyline::Site::PagesController
   def show
     renderer = @site.renderer(:controller => self)
     
-    if @page_version      
+    if @page_version
       renderer.assigns[:bread_crumb] = @page_version.page.nesting.map{|p| [p.published_publication_data.navigation_title,p.url] }
       renderer.assigns[:skip_title] = false
-            
+      
       # ============
       # = Newsitem =
       # ============
@@ -15,7 +15,7 @@ class PagesController < Skyline::Site::PagesController
         if @news_item
           renderer.assigns.update(:renderable_object => @news_item)
         end
-      end 
+      end
       
       # ========
       # = Shop =
@@ -32,20 +32,20 @@ class PagesController < Skyline::Site::PagesController
       # = Sitemap =
       # ===========
       
-      if @page_version.page.id == Settings.get(:specials, :sitemap_page_id).andand.to_i 
+      if @page_version.page.id == Settings.get(:specials, :sitemap_page_id).andand.to_i
         sitemap = render_to_string :partial => "pages/sitemap", :locals => {:root => Skyline::Page.root}
         renderer.assigns.update(:body => sitemap)
       end
-                      
+      
       # ========
       # = Page =
       # ========
       if renderer.assigns[:body].blank? && renderer.assigns[:renderable_object].blank? && @url_parts.empty?
         renderer.assigns.update(:body => self.response.body)
       end
-          
-      render :text => renderer.render(@page_version) if renderer.assigns[:body].present? || renderer.assigns[:renderable_object].present?
-    end    
+      
+      render :text => renderer.render(@page_version) if renderer.assigns[:body] || renderer.assigns[:renderable_object]
+    end
 
     # ================================================
     # = Fallback; render 404 if nothing was rendered =
@@ -61,7 +61,7 @@ class PagesController < Skyline::Site::PagesController
     if page_version = Skyline::Page.find_by_id(page_id).andand.published_publication
       render :text => @site.renderer(:controller => self).render(page_version), :status => :not_found
     else
-      render :text => "Error 404 :: Page with url \"#{params[:url].join("/")}\" doesn't exist.", :status => :not_found    
+      render :text => "Error 404 :: Page with url \"#{params[:url].join("/")}\" doesn't exist.", :status => :not_found
     end
   end
 
@@ -75,7 +75,7 @@ class PagesController < Skyline::Site::PagesController
     str.gsub(/([\+\-\!\(\)\]\[\^\"\~\*\?\:\\]|(&&)|(\|\|))/, '\\\\\1')
   end
   helper_method :escape_special_chars
-    
+  
   def possibly_redirect
     return unless @page_version
     if redirect_section = @page_version.sections.detect{|section| section.sectionable.kind_of?(Skyline::Sections::RedirectSection)}

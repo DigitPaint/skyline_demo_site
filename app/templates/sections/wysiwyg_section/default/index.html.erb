@@ -4,5 +4,5 @@
   Skyline::Sections::HeadingSection 
   Skyline::Sections::WysiwygSection} %>
 <div class="text <%= "section" if n && !%w{level1}.include?(wysiwyg_section.section.article_version.template) && !section_types.include?(n.sectionable_type) %>">
-  <%=wysiwyg_section.body%>
+  <%=wysiwyg_section.body.html_safe %>
 </div>

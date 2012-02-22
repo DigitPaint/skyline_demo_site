@@ -7,7 +7,7 @@
            <% copyright = i[:author] || rss_section.rss_feed[:copyright] %>
           <cite><a href="<%= i[:link] %>" class="more">Bron: <%= i[:category] || rss_section.rss_feed[:category] %><%= " | #{copyright}" if copyright.present? %></a></cite>
           <div class="text">
-            <%= i[:description] %>
+            <%= i[:description].html_safe %>
           </div>
           <a href="<%= i[:link] %>" class="more" target="_blank">Read more</a></dd>
     <% end %>

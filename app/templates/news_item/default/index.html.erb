@@ -4,9 +4,9 @@
 </h2>
 <div class="text">
   <% if article_version.data.image.present? %>
-    <%= image_tag(article_version.data.image.url("50x50"), :alt => article_version.data.image.title) %>
+    <img src="<%= article_version.data.image.url("50x50")%>" alt="<%= article_version.data.image.title %>" />
   <% else %>
-    <%= image_tag("default-50x50.gif") %>
+    <img src="default-50x50.gif" alt="default">
   <% end %>
 </div>
 

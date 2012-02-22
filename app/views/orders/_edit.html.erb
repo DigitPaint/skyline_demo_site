@@ -25,14 +25,14 @@
               <%= image_submit_tag "/images/icons/add.png" %>
             <% end %>
           </td>
-          <td class="price"><%= "#{number_to_currency((op.amount * op.price), :unit => '&euro;')}" %></td>
+          <td class="price"><%= "#{number_to_currency((op.amount * op.price), :unit => '&euro;')}".html_safe %></td>
         </tr>
       <% end %>
     <% end %>
     <tr class="total">
       <td>&nbsp;</td>
       <td class="title">Total</td>
-      <td class="price" colspan="3"><%= number_to_currency(total_price(@order), :unit => "&euro") %></td>
+      <td class="price" colspan="3"><%= number_to_currency(total_price(@order), :unit => "&euro;").html_safe %></td>
     </tr>
   </table>
   <% if @confirm %>

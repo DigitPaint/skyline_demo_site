@@ -3,7 +3,7 @@
     <% calendar_items.each do |calendar_item| %>
       <dt class="title"><%=l(calendar_item.calendar_date, :format => :long)%></dt>
       <dd class="date"><%=calendar_item.title%></dd>
-        <dd><div class="text"><%=calendar_item.description%></div></dd>
+        <dd><div class="text"><%=calendar_item.description.html_safe %></div></dd>
       </li>
     <%end%>
   </ul>

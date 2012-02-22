@@ -13022,7 +13022,7 @@ skyline_sections_link_sections:
 skyline_sections_media_sections: 
   columns: 
   - id
-  - linked_id
+  - media_id
   - alignment
   - width
   - height
@@ -13114,32 +13114,32 @@ skyline_sections_rss_sections:
   - updated_at
   records: 
   - - "1"
-    - http://www.nosheadlines.nl/rss.php/list_activetopics?ReactID=83b0934b7116fe1226283e93c3e9c82a
+    - http://feeds.nos.nl/nosjournaal
     - "5"
     - 2009-08-07 09:10:58
     - 2009-08-07 09:10:58
   - - "6"
-    - http://www.nosheadlines.nl/rss.php/list_activetopics?ReactID=83b0934b7116fe1226283e93c3e9c82a
+    - http://feeds.nos.nl/nosjournaal
     - "5"
     - 2009-08-07 09:10:58
     - 2009-08-07 09:10:58
   - - "7"
-    - http://www.nosheadlines.nl/rss.php/list_activetopics?ReactID=83b0934b7116fe1226283e93c3e9c82a
+    - http://feeds.nos.nl/nosjournaal
     - "5"
     - 2009-08-07 09:10:58
     - 2009-08-07 09:10:58
   - - "8"
-    - http://www.nosheadlines.nl/rss.php/list_activetopics?ReactID=83b0934b7116fe1226283e93c3e9c82a
+    - http://feeds.nos.nl/nosjournaal
     - "5"
     - 2009-08-07 09:10:58
     - 2009-08-07 09:10:58
   - - "9"
-    - http://www.nosheadlines.nl/rss.php/list_activetopics?ReactID=83b0934b7116fe1226283e93c3e9c82a
+    - http://feeds.nos.nl/nosjournaal
     - "5"
     - 2009-08-07 09:10:58
     - 2009-08-07 09:10:58
   - - "10"
-    - http://www.nosheadlines.nl/rss.php/list_activetopics?ReactID=83b0934b7116fe1226283e93c3e9c82a
+    - http://feeds.nos.nl/nosjournaal
     - "5"
     - 2009-08-07 09:10:58
     - 2009-08-07 09:10:58
@@ -14051,7 +14051,6 @@ product_data:
   - url_part
   - teaser
   - image_id
-  - integer
   - price
   - created_at
   - updated_at
@@ -14061,7 +14060,6 @@ product_data:
     - mineral_enriched_coffee_cup
     - Coffee never tasted so good
     - "228"
-    - 
     - "10"
     - 2010-03-30 14:16:23
     - 2010-04-13 15:18:08
@@ -14070,7 +14068,6 @@ product_data:
     - handwoven_t_shirt
     - Classy 100% silk SkylineCMS T-shirt
     - "227"
-    - 
     - "15"
     - 2010-03-30 14:17:07
     - 2010-04-15 12:36:42
@@ -14079,7 +14076,6 @@ product_data:
     - mineral_enriched_coffee_cup
     - Coffee never tasted so good
     - "235"
-    - 
     - "10"
     - 2010-03-30 14:16:23
     - 2010-04-13 15:18:08
@@ -14088,7 +14084,6 @@ product_data:
     - handwoven_t_shirt
     - Classy 100% silk SkylineCMS T-shirt
     - "236"
-    - 
     - "15"
     - 2010-03-30 14:17:07
     - 2010-04-15 12:36:42

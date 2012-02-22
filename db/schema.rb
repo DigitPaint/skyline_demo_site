@@ -1,15 +1,16 @@
-# This file is auto-generated from the current state of the database. Instead of editing this file, 
-# please use the migrations feature of Active Record to incrementally modify your database, and
-# then regenerate this schema definition.
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your database schema. If you need
-# to create the application database on another system, you should be using db:schema:load, not running
-# all the migrations from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# Note that this schema.rb definition is the authoritative source for your
+# database schema. If you need to create the application database on another
+# system, you should be using db:schema:load, not running all the migrations
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100422122749) do
+ActiveRecord::Schema.define(:version => 20111101092405) do
 
   create_table "calendar_items", :force => true do |t|
     t.string   "title"
@@ -45,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20100422122749) do
     t.integer "order_id"
     t.integer "product_id"
     t.string  "title"
-    t.integer "price",      :limit => 10, :precision => 10, :scale => 0
+    t.decimal "price",      :precision => 10, :scale => 0
     t.integer "amount"
   end
 
@@ -65,7 +66,7 @@ ActiveRecord::Schema.define(:version => 20100422122749) do
     t.text     "url_part"
     t.text     "teaser"
     t.integer  "image_id"
-    t.integer  "price",      :limit => 10, :precision => 10, :scale => 0
+    t.decimal  "price",      :precision => 10, :scale => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -93,7 +94,7 @@ ActiveRecord::Schema.define(:version => 20100422122749) do
     t.string   "data_type"
   end
 
-  add_index "skyline_article_versions", ["type", "article_id", "version"], :name => "index_skyline_page_versions_on_type_and_page_id_and_version"
+  add_index "skyline_article_versions", ["type", "article_id", "version"], :name => "spv_type_page_id_version"
 
   create_table "skyline_articles", :force => true do |t|
     t.integer  "parent_id"
@@ -102,7 +103,7 @@ ActiveRecord::Schema.define(:version => 20100422122749) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "locked",                        :default => false, :null => false
-    t.string   "url_part"
+    t.string   "url_part",                      :default => ""
     t.boolean  "persistent",                    :default => false, :null => false
     t.string   "identifier"
     t.string   "type"
@@ -111,12 +112,12 @@ ActiveRecord::Schema.define(:version => 20100422122749) do
     t.integer  "default_variant_data_id"
   end
 
-  add_index "skyline_articles", ["parent_id", "position"], :name => "index_skyline_pages_on_page_id_and_position"
+  add_index "skyline_articles", ["parent_id", "position"], :name => "sp_page_id_position"
 
   create_table "skyline_associated_tags", :force => true do |t|
     t.integer "taggable_id"
     t.integer "tag_id"
-    t.string  "taggable_type", :null => false
+    t.string  "taggable_type", :default => "", :null => false
   end
 
   add_index "skyline_associated_tags", ["taggable_type", "taggable_id", "tag_id"], :name => "sat_ttt"
@@ -135,7 +136,7 @@ ActiveRecord::Schema.define(:version => 20100422122749) do
     t.datetime "updated_at"
   end
 
-  add_index "skyline_link_section_links", ["link_section_id", "position"], :name => "index_skyline_link_section_links_on_link_section_id_and_position"
+  add_index "skyline_link_section_links", ["link_section_id", "position"], :name => "slsl_link_section_id_position"
 
   create_table "skyline_media_cache", :force => true do |t|
     t.string  "url"
@@ -219,7 +220,7 @@ ActiveRecord::Schema.define(:version => 20100422122749) do
     t.datetime "updated_at"
   end
 
-  add_index "skyline_sections", ["article_version_id", "position"], :name => "index_skyline_sections_on_page_version_id_and_position"
+  add_index "skyline_sections", ["article_version_id", "position"], :name => "ss_page_version_id_position"
 
   create_table "skyline_sections_content_collection_sections", :force => true do |t|
     t.string   "content_type", :null => false
@@ -301,10 +302,17 @@ ActiveRecord::Schema.define(:version => 20100422122749) do
 
   create_table "skyline_tags", :force => true do |t|
     t.string "tag"
-    t.string "taggable_type", :null => false
+    t.string "taggable_type", :default => "", :null => false
   end
 
-  add_index "skyline_tags", ["taggable_type", "tag"], :name => "index_skyline_tags_on_taggable_type_and_tag"
+  add_index "skyline_tags", ["taggable_type", "tag"], :name => "sk_taggable_type_tag"
+
+  create_table "skyline_test_article_data", :force => true do |t|
+    t.text     "intro"
+    t.integer  "link_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "skyline_test_sections", :force => true do |t|
     t.text     "body_a"

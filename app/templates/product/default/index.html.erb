@@ -1,9 +1,9 @@
 <div class="feature left">
   <div class="media">
     <% if article_version.data.image.present? %>
-      <%= image_tag(article_version.data.image.url("100x100"), :alt => article_version.data.image.title) %>
+      <img src="<%= article_version.data.image.url("100x100")%>" alt="<%= article_version.data.image.title %>" />
     <% else %>
-      <%= image_tag("shop-100x100.gif") %>
+      <img src="shop-100x100.gif" alt="shop">
     <% end %>
   </div>
   <div class="content"><span class="price"><%= number_to_currency(article_version.data.price, :unit => '&euro;') %></span>
@@ -13,8 +13,8 @@
     </div>
     <%= render_collection(article_version.sections) %>
     <div class="shop-navigation">   
-       <div class="text">        
-        <% form_tag({:controller => "/orders", :action => "update"}, :method => :put) do %>
+       <div class="text">
+        <%= form_tag(order_path(0), :method => :put) do %>
           <%= hidden_field_tag "product_id", article_version.article.id  %>
           <button type="submit"><span>Add to basket</span></button>
         <% end %>
