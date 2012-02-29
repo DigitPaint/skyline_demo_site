@@ -11,7 +11,7 @@ class NewsItem < Skyline::Article
     validates_presence_of :title, :url_part, :if => :to_be_published  
     # validates_uniqueness_of :url_part, :if => :to_be_published  
     
-    named_scope :published, lambda{
+    scope :published, lambda{
       {:include => [:news_item], :conditions => "skyline_articles.published_publication_data_id = news_item_data.id"}
     }
     

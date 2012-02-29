@@ -17,7 +17,7 @@ class Product < Skyline::Article
     before_validation :sanitize_url_part
     validate :validate_url_part, :if => :to_be_published
     
-    named_scope :published, lambda{
+    scope :published, lambda{
       {:include => [:product], :conditions => "skyline_articles.published_publication_data_id = product_data.id"}
     }
     
