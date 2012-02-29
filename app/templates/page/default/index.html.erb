@@ -15,7 +15,7 @@
             <%= render_collection(page_section) unless @skip_sections %>
           <% end %>
 
-          <%= @body %>
+          <%= @body.andand.html_safe %>
           <%= render_object(@renderable_object) if @renderable_object%>
         </div>
         

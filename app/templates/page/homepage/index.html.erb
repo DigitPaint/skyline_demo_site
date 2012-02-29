@@ -17,7 +17,7 @@
             <%= render_collection(page_section) %>
           <% end %>
 
-          <%= @body %>
+          <%= @body.andand.html_safe %>
         </div>
         <div class="rightcolumn">
           <% if page_sections[1] %>
