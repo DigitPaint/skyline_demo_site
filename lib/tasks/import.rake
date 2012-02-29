@@ -190,7 +190,7 @@ module YamlDb::Load
 end
 
 
-DUMP_FILE_PATH = File.join(RAILS_ROOT,"db/fixtures/data.yml")
+DUMP_FILE_PATH = File.join(Rails.root,"db/fixtures/data.yml")
 
 namespace :demo do
   verbose(true)
