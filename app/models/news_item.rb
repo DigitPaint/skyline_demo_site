@@ -1,6 +1,6 @@
 class NewsItem < Skyline::Article
   class Data < Skyline::Article::Data
-    set_table_name "news_item_data"
+    self.table_name = "news_item_data"
     
     include Skyline::Taggable
     include Skyline::BelongsToReferable

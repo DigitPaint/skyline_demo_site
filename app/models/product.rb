@@ -1,6 +1,6 @@
 class Product < Skyline::Article
   class Data < Skyline::Article::Data
-    set_table_name "product_data"
+    self.table_name = "product_data"
     
     include Skyline::Taggable
     include Skyline::BelongsToReferable
